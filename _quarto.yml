@@ -1,0 +1,22 @@
+project:
+  type: website
+
+website:
+  title: "odomatic-wings-analysis"
+  navbar:
+    left:
+      - href: index.qmd
+        text: About
+      - data_prep.qmd
+      - descriptive.qmd
+      - models.qmd
+      - comparative.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+editor: visual
+

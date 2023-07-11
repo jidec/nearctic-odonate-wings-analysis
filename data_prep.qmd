@@ -1,0 +1,66 @@
+---
+title: "Data Prep"
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+Load **colorEvoHelpers**, a package containing personal helpers
+
+```{r}
+
+library(colorEvoHelpers)
+library(dplyr)
+
+```
+
+Perform first clustering step
+
+```{r}
+
+recolorizeSegmentDir(dir="D:/GitProjects/odomatic-wings-analysis/data/segments","D:/wing-color/data/patterns",median_blur_n = 7,cluster_cutoff = 25) 
+
+```
+
+Perform second clustering step in Python
+
+```{python eval=FALSE}
+
+ids = getFilterImageIDs(proj_dir="D:/wing-color")
+ids = [i + "_hind" for i in ids] + [i + "_fore" for i in ids]
+random.Random().shuffle(ids) # 4 is the seed
+ids = ids[0:1000]
+
+colorDiscretize(ids,preclustered=True, group_cluster_raw_ids=True, show=True, show_indv=False,
+                cluster_model="gaussian_mixture",
+                nclusters=3, nclust_metric="ch", scale=False,
+                bilat_blur=False,gaussian_blur=False,median_blur=False, colorspace="rgb",
+                proj_dir="D:/wing-color",
+                write_subfolder="grouped2",vert_resize=20,print_details=False)
+
+```
+
+Prep the wing data, returning a tuple containing:
+
+1\. individual-level data
+
+2\. individual-level data trimmed to phy
+
+3\. phy trimmed to data
+
+4\. species-level data
+
+5\. species-level data trimmed to phy
+
+6\. species-sex level data
+
+7\. species-sex-forehind level data
+
+```{r}
+source("R/prepOdomaticDataFromPatterns.R")
+data <- prepOdomaticDataFromPatterns(wing_img_loc = "D:/wing-color/data/patterns/grouped2",
+             patpca_img_loc = "D:/wing-color/data/patterns/grouped2resized",
+             tc1_1 = 0.5529, tc1_2 = 0.2470)
+```
