@@ -16,7 +16,7 @@ Insects have adapted the color of their bodies for many ecological functions inc
 2.  Does spatial patterning matter as a signal?
 3.  Do Odonates with different life history strategies use color differently?
 
-## Predictions based on previous research 
+## Predictions based on previous research
 
 1.  A color signal (increased pigment or a certain pattern) will be present in territorial males that signals territoriality to other males
 2.  Percher males will have more dark pigments due to their different thermoregulatory needs

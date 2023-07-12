@@ -12,8 +12,24 @@ library(colorEvoHelpers)
 library(dplyr)
 
 # prep isn't tested currently, so load in data already created for now
-wings <- read.csv("data/wings.csv")
-# wings_new <- read.csv("data/wings_new.csv")
+#wings <- read.csv("data/wings.csv")
+wings <- read.csv("data/wings_new.csv")
+wings$blackbrown <- wings$black
+wings$brownyellow <- wings$brown
+wings$sex <- wings$Sex
+wings$wing_length <- wings$Length..outer..FW..mm.
+wings$temperature <- wings$temp_indv
+wings$flight_type <- wings$flight_type_rm_inter
+wings$is_damselfly <- wings$Suborder == "Zygoptera"
+
+wings <- select(wings, blackbrown, brownyellow, 
+                wing_length, flight_type, sex,
+                lat, lon, temp_indv,
+                species, is_damselfly,
+                wing_type) 
+
+write.csv(wings,"wings_for_mike.csv")
+
 ```
 
 What colors have come out of our clustering?

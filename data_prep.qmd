@@ -64,3 +64,9 @@ data <- prepOdomaticDataFromPatterns(wing_img_loc = "D:/wing-color/data/patterns
              patpca_img_loc = "D:/wing-color/data/patterns/grouped2resized",
              tc1_1 = 0.5529, tc1_2 = 0.2470)
 ```
+
+```{r}
+
+colnames(wings)
+wings
+```
