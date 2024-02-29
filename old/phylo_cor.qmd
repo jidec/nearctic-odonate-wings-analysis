@@ -1,0 +1,109 @@
+---
+title: "phylo_cor"
+---
+
+```{r}
+
+library(colorEvoHelpers)
+library(MASS)
+library(dplyr)
+wings$clade <- wings$species
+wings_sp <- wings %>% group_by(clade) %>% summarize(blackbrown = mean(blackbrown),
+                                                    brownyellow = mean(brownyellow))
+
+wings_sp$bb_present <- wings_sp$blackbrown > 0
+wings_sp$by_present <- wings_sp$brownyellow > 0
+tree <- loadFixTree("data/dragonfly_tree.tre")
+#assessTraitsOnTree(wings_sp, tree, "blackbrown")
+#assessTraitsOnTree(wings_sp, tree, "brownyellow")
+assessTraitsOnTree(wings_sp, tree, "blackbrown", "brownyellow")
+```
+
+```{r}
+
+library(stringr)
+library(colorEvoHelpers)
+library(ape)
+library(phytools)
+library(dplyr)
+
+tree <- loadFixTree(tree_location = "data/dragonfly_tree.tre")
+wings$clade <- wings$species
+
+wings_sp <- wings %>% group_by(clade) %>% summarize(blackbrown = mean(blackbrown),
+                                                    brownyellow = mean(brownyellow))
+tuple <- trimDfToTree(wings_sp,tree)
+
+df <- tuple[[1]]
+tree <- tuple[[2]]
+
+length(tree$tip.label)
+length(unique(df$clade))
+
+trait_colname <- "blackbrown"
+t1map <- plotOnTree(df,tree,trait_colname="blackbrown",legend=TRUE)
+```
+
+```{r}
+
+ # prep traits for asr
+    trait <- as.vector(df[,trait_colname]) #change this to meanMD, meanHour, propNight etc
+    trait <- unlist(trait)
+    names(trait) <- df$clade
+
+    # unlist tree tips
+    tree$tip.label <- unlist(tree$tip.label)
+
+    #makes trait indices match order of tree tips
+    matchOrder <- function(tree, traitvect)
+    {
+        ordered <- traitvect
+        for(i in 1:length(tree$tip.label))
+        {
+            tipstr <- tree$tip.label[i]
+            for(ii in 1:length(traitvect))
+            {
+                if(tipstr == names(traitvect[ii]))
+                {
+                    ordered[i] <- traitvect[ii]
+                    names(ordered)[i] <- tipstr
+                }
+            }
+        }
+        return(ordered)
+    }
+
+    trait <- matchOrder(tree, trait)
+
+    # replace NaN edge lengths with 0
+    tree$edge.length <- ifelse(is.nan(tree$edge.length),0, tree$edge.length)
+    tree$edge.length[tree$edge.length == 0] <- 0.1
+    length(tree$tip.label)
+    length(trait)
+    # if numeric
+    if(class(trait) == "numeric"){
+        # create contMap for all genera
+        obj <- contMap(tree,trait,method="anc.ML",fsize = 0,legend=legend)#,lims=c(-0.15,0.4874))
+        #errorbar.contMap(obj)
+
+        obj<-setMap(obj,colors=c("grey","black"))
+        cex <- 1
+        #if(!tipnames){
+        #    cex <- 0
+        #}
+        plot(obj,type="fan",legend=0.7*max(nodeHeights(tree)), fsize=c(0.6,0.9),cex=0.5,show.tip.label=FALSE)
+
+        # compute phylogenetic signal
+        physig <- phylosig(tree, trait, method="K", test=TRUE, nsim=1000, se=NULL, start=NULL,
+                           control=list())
+        physigL <- phylosig(tree, trait, method="lambda", test=FALSE, nsim=1000, se=NULL, start=NULL,
+                            control=list())
+        print(physig)
+        plot(physig,las=1,cex.axis=0.9)
+        print(physigL)
+
+        return(obj)
+    }
+
+
+```

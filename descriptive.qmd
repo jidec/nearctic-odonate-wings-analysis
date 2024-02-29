@@ -51,7 +51,7 @@ Visualize the distribution of the Odonate percher-flyer dichotomy (flight_type) 
 
 ```{r}
 
-plot_bar(select(wings, flight_type, Sex,Family))
+plot_bar(select(wings, flight_type, sex))
 ```
 
 1.  Many more perchers than flyers
@@ -61,7 +61,7 @@ Visualize distributions of continuous predictors and responses
 
 ```{r}
 
-plot_density(select(wings,black,brown,yellow,temp_indv,Length..inner..FW..mm.)) #temp_indv,lat,lon,mean_lightness))
+plot_density(select(wings,blackbrown,brownyellow,temp_indv,wing_length)) #temp_indv,lat,lon,mean_lightness))
 ```
 
 Visualize correlations between pertinent variables
@@ -70,4 +70,64 @@ Visualize correlations between pertinent variables
 
 plot_correlation(select(wings,black,brown,yellow,temp_indv,Length..inner..FW..mm.,flight_type, Sex))
 
+
+```
+
+```{r}
+
+sp <- wings %>% group_by(species) %>% summarize(blackbrown = mean(black),brownyellow = mean(brown))
+
+nrow(dplyr::filter(sp, blackbrown > 0.05)) / nrow(sp)
+nrow(dplyr::filter(sp, brownyellow > 0.05)) / nrow(sp)
+```
+
+Plot densities of blackbrown and brownyellow
+
+```{r}
+
+ggplot(data=wings, aes(x = black)) +
+  geom_density(fill = "blue", color = "black", alpha = 0.5) +
+  xlab("Variable Name") +
+  ylab("Density") +
+  ggtitle("Density Plot of Continuous Variable")
+
+ggplot(data=sp, aes(x = blackbrown)) +
+  geom_density(fill = "blue", color = "black", alpha = 0.5) +
+  xlab("Variable Name") +
+  ylab("Density") +
+  ggtitle("Density Plot of Continuous Variable")
+
+```
+
+Review hist of collections
+
+```{r}
+
+barplot(table(as.factor(wings$Collection)))
+
+nrow(filter(wings,Collection == "RUN")) / nrow(wings)
+
+```
+
+What collections are specimens from?
+
+```{r}
+
+library(dplyr)
+supp <- wings %>%
+  select(Collection,Collection.Unique.ID) %>%
+  distinct(Collection.Unique.ID, .keep_all = TRUE)
+
+View(supp)
+
+table(supp$Collection)
+
+supp$Col <- supp$Collection
+
+supp$Col[supp$Collection == "UA"] <- "Alabama Museum of Natural History"
+supp$Col[supp$Collection == "MLM"] <- "Collection of Michael L. May"
+supp$Col[supp$Collection == "RUN"] <- "Rutgers-University Newark (Now Housed at AMNH)"
+supp$Col[supp$Collection == "WRK-WS"] <- "Collection of William Kuhn (Now Housed at AMNH)"
+
+colnames(supp) <- c("collection_code","collection_unique_id", "collection_name")
 ```
