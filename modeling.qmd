@@ -1,0 +1,187 @@
+---
+title: "Modeling"
+---
+
+Black dark-brown model
+
+```{r}
+
+library(tidyverse)
+library(brms)
+library(ncf)
+
+mdf <- read.csv("data/wings_for_mike.csv")
+mdf <- na.omit(mdf)
+mdf <- mdf %>% 
+  mutate(wing_length = scale(wing_length),
+         temp_indv = scale(temp_indv))
+##make more complicated
+mdf <- mdf %>% 
+  mutate(is_damselfly = if_else(is_damselfly, 1, 0))
+mdf$is_damselfly <- as.factor(mdf$is_damselfly)
+
+
+# phylogenetic signal
+library(ape)
+ode_tree <- read.tree(file = "data/odonata.tre")
+
+mdf <- mdf %>% 
+  mutate(spp = stringr::str_replace(species, " ", "_"))
+
+toDelete <- data.frame(tree_spp = ode_tree$tip.label) %>% 
+  filter(!tree_spp %in% mdf$spp)
+
+ode_tree_cut <- drop.tip(ode_tree, tip = toDelete$tree_spp)
+
+mdf_phylo <- mdf %>% 
+  filter(spp %in% ode_tree_cut$tip.label)
+
+mdf_phylo <- mdf_phylo %>% 
+  mutate(latRound = round(lat,2),
+         lonRound = round(lon,2))
+
+
+# add phylogenetic term
+A <- ape::vcv.phylo(ode_tree_cut)
+
+# Create the model formula
+ri_formula <- bf(
+  # mu (mean) part
+  blackbrown ~ wing_length + temp_indv + flight_type + 
+    sex + temp_indv:flight_type + sex:flight_type + t2(latRound, lonRound) +
+    (1|species/wing_type) + (1|gr(spp, cov = A)),
+  # phi (precision) part
+  phi ~ temp_indv + (1 | species/wing_type),
+  # alpha (zero-inflation) part
+  zi ~ wing_length + temp_indv + flight_type + sex + (1 | species/wing_type)
+)
+
+# specify priors
+get_prior(
+  ri_formula,
+  data = mdf_phylo,
+  data2 = list(A = A),
+  family = zero_inflated_beta()
+)
+
+priors <- c(set_prior("student_t(3, 0, 2)", class = "Intercept"),
+            set_prior("normal(0.5, 1)", class = "b"))
+
+
+ri_model_phy <- brm(
+  ri_formula,
+  data = mdf_phylo,
+  data2 = list(A = A),
+  family = zero_inflated_beta(),
+  prior = priors,
+  init = "0",
+  chains = 4, iter = 3000, warmup = 1000,
+  cores = 16, seed = 1234, 
+  threads = threading(2),
+  backend = "cmdstanr", 
+  control = list(adapt_delta = 0.99,
+                 max_treedepth = 16),
+)
+
+summary(ri_model_phy)
+saveRDS(object = ri_model_phy, file = "data/blackBrown_phylo_m1_nestedRI_spatialTerm.rds")
+
+r <- residuals(ri_model_phy)
+
+ndf_df <- data.frame(lon = mdf_phylo$lon, lat = mdf_phylo$lat, z = r[,1])
+
+fit_cor <- correlog(x = ndf_df$lon, y = ndf_df$lat, z = ndf_df$z, increment = 1, resamp = 100)
+plot(fit_cor)
+```
+
+Light-brown yellow model
+
+```{r}
+
+library(tidyverse)
+library(brms)
+library(ncf)
+
+mdf <- read.csv("data/wings_for_mike.csv")
+mdf <- na.omit(mdf)
+mdf <- mdf %>% 
+  mutate(wing_length = scale(wing_length),
+         temp_indv = scale(temp_indv))
+##make more complicated
+mdf <- mdf %>% 
+  mutate(is_damselfly = if_else(is_damselfly, 1, 0))
+mdf$is_damselfly <- as.factor(mdf$is_damselfly)
+
+
+# phylogenetic signal
+library(ape)
+ode_tree <- read.tree(file = "data/odonata.tre")
+
+mdf <- mdf %>% 
+  mutate(spp = stringr::str_replace(species, " ", "_"))
+
+toDelete <- data.frame(tree_spp = ode_tree$tip.label) %>% 
+  filter(!tree_spp %in% mdf$spp)
+
+ode_tree_cut <- drop.tip(ode_tree, tip = toDelete$tree_spp)
+
+mdf_phylo <- mdf %>% 
+  filter(spp %in% ode_tree_cut$tip.label)
+
+mdf_phylo <- mdf_phylo %>% 
+  mutate(latRound = round(lat,2),
+         lonRound = round(lon,2))
+
+
+# add phylogenetic term
+A <- ape::vcv.phylo(ode_tree_cut)
+
+# Create the model formula
+ri_formula <- bf(
+  # mu (mean) part
+  brownyellow ~ wing_length + temp_indv + flight_type + 
+    sex + temp_indv:flight_type + sex:flight_type + t2(latRound, lonRound) +
+    (1|species/wing_type) + (1|gr(spp, cov = A)),
+  # phi (precision) part
+  phi ~ temp_indv + (1 | species/wing_type),
+  # alpha (zero-inflation) part
+  zi ~ wing_length + temp_indv + flight_type + sex + (1 | species/wing_type)
+)
+
+# specify priors
+get_prior(
+  ri_formula,
+  data = mdf_phylo,
+  data2 = list(A = A),
+  family = zero_inflated_beta()
+)
+
+priors <- c(set_prior("student_t(3, 0, 2)", class = "Intercept"),
+            set_prior("normal(0.5, 1)", class = "b"))
+
+
+ri_model_phy <- brm(
+  ri_formula,
+  data = mdf_phylo,
+  data2 = list(A = A),
+  family = zero_inflated_beta(),
+  prior = priors,
+  init = "0",
+  chains = 4, iter = 3000, warmup = 1000,
+  cores = 16, seed = 1234, 
+  threads = threading(2),
+  backend = "cmdstanr", 
+  control = list(adapt_delta = 0.99,
+                 max_treedepth = 16),
+)
+
+summary(ri_model_phy)
+saveRDS(object = ri_model_phy, file = "data/brownYellow_phylo_m1_nestedRI_spatialTerm.rds")
+
+r <- residuals(ri_model_phy)
+
+ndf_df <- data.frame(lon = mdf_phylo$lon, lat = mdf_phylo$lat, z = r[,1])
+
+fit_cor <- correlog(x = ndf_df$lon, y = ndf_df$lat, z = ndf_df$z, increment = 1, resamp = 100)
+plot(fit_cor)
+```
