@@ -1,0 +1,70 @@
+---
+title: "Publication Figures"
+---
+
+Below are the steps to build the figures shown in our publication
+
+Fig. 1 was done by a coauthor using a separate pipeline
+
+```{r}
+library(brms)
+library(ggplot2)
+library(ggpubr)
+
+# read saved brms models
+bb <- readRDS("data/blackBrown_phylo_m1_nestedRI_spatialTerm.rds")
+by <- readRDS("data/brownyellow_phylo_m1_nestedRI_spatialTerm.rds")
+
+# helper to convert a brms effects model to a ggplot model 
+brms2ggplot <- function(cond_effects){
+  return(plot(cond_effects,plot=FALSE)[[1]])
+}
+```
+
+## Figure 3. Wing length, flight style, and temperature influence the amount or presence of black-dark brown wing color
+
+```{r}
+
+wing_length_more_bb <- brms2ggplot(conditional_effects(bb, effects = "wing_length")) + labs(x = "Wing Length", y = "Black-brown Amount")
+
+male_perchers_more_bb <- brms2ggplot(conditional_effects(bb, effects = "flight_type:sex")) + labs(x = "Flight Type", y = "") 
+                     
+plot <- conditional_effects(bb, effects = "wing_length", dpar = "zi")
+plot$wing_length$estimate__ <- 1 - plot$wing_length$estimate__
+plot$wing_length$lower__ <- 1 - plot$wing_length$lower__
+plot$wing_length$upper__ <- 1 - plot$wing_length$upper__
+wing_length_less_bb_zeros <- brms2ggplot(plot) + labs(x = "Wing Length", y = "Odds of Black-brown Presence") 
+
+plot <- conditional_effects(bb, effects = "temp_indv", dpar = "zi")
+plot$temp_indv$estimate__ <- 1 - plot$temp_indv$estimate__
+plot$temp_indv$lower__ <- 1 - plot$temp_indv$lower__
+plot$temp_indv$upper__ <- 1 - plot$temp_indv$upper__
+temp_less_bb_zeros <- brms2ggplot(plot) + labs(x = "Temperature", y = "")
+
+
+ggarrange(wing_length_more_bb,male_perchers_more_bb,wing_length_less_bb_zeros,temp_less_bb_zeros, ncol = 2, nrow = 2)
+
+```
+
+## Figure 4. Wing length and sex influence the amount or presence of light-brown yellow wing color
+
+```{r}
+
+wing_length_more_by <- brms2ggplot(conditional_effects(by, effects = "wing_length")) + labs(x = "Wing Length", y = "Brown-yellow Proportion")
+males_less_by_zeros <-  brms2ggplot(conditional_effects(by, effects = "sex", dpar = "zi")) + labs(x = "Sex", y = "Odds of Brown-yellow Absence") + theme(axis.title.y = element_text(size = 8))
+
+plot <- conditional_effects(by, effects = "sex", dpar = "zi")
+plot$sex$estimate__ <- 1 - plot$sex$estimate__
+plot$sex$lower__ <- 1 - plot$sex$lower__
+plot$sex$upper__ <- 1 - plot$sex$upper__
+sex_presence <- brms2ggplot(plot) + labs(x = "Sex", y = "Odds of Brown-yellow Presence")
+
+plot <- conditional_effects(by, effects = "wing_length", dpar = "zi")
+plot$wing_length$estimate__ <- 1 - plot$wing_length$estimate__
+plot$wing_length$lower__ <- 1 - plot$wing_length$lower__
+plot$wing_length$upper__ <- 1 - plot$wing_length$upper__
+wing_length_more_by_presence <- brms2ggplot(plot) + labs(x = "Wing Length", y = "Odds of Brown-yellow Presence")
+
+ggarrange(wing_length_more_by,sex_presence,wing_length_more_by_presence,nrow=3,ncol=1)
+
+```
