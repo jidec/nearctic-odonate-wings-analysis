@@ -11,12 +11,13 @@ Load **colorEvoHelpers**, a package containing personal helpers
 
 ```{r}
 
+#devtools::install_github("jidec/color-evo-helpers")
 library(colorEvoHelpers)
 library(dplyr)
 
 ```
 
-Perform first clustering step
+Perform first clustering step, which applies recolorize to all images individually
 
 ```{r}
 
@@ -24,23 +25,37 @@ recolorizeSegmentDir(dir="D:/GitProjects/odomatic-wings-analysis/data/segments",
 
 ```
 
-Perform second clustering step in Python
+In Python, look at dispersion and cohesion scores to pick a number of clusters
+
+```{python}
+#!pip install git+https://github.com/jidec/bigcrittercolor.git@main
+from bigcrittercolor import clusterColorsToPatterns
+from bigcrittercolor.helpers import _getIDsInFolder
+
+ids = _getIDsInFolder("D:/wing-color/data/segments")
+ids = [i + "_hind" for i in ids] + [i + "_fore" for i in ids]
+
+clusterColorsToPatterns(img_ids=ids, preclustered=True, blur_args={'type':"gaussian",'ksize':21}, equalize_args=None,
+                        colorspace="rgb",
+                        cluster_args={'algo':"gaussian_mixture"},
+                        data_folder="D:/wing-color/data",height_resize=20)
+```
+
+Perform second clustering step
 
 ```{python eval=FALSE}
 
-ids = getFilterImageIDs(proj_dir="D:/wing-color")
+ids = _getIDsInFolder("D:/wing-color/data/segments")
 ids = [i + "_hind" for i in ids] + [i + "_fore" for i in ids]
-random.Random().shuffle(ids) # 4 is the seed
-ids = ids[0:1000]
 
-colorDiscretize(ids,preclustered=True, group_cluster_raw_ids=True, show=True, show_indv=False,
-                cluster_model="gaussian_mixture",
-                nclusters=3, nclust_metric="ch", scale=False,
-                bilat_blur=False,gaussian_blur=False,median_blur=False, colorspace="rgb",
-                proj_dir="D:/wing-color",
-                write_subfolder="grouped2",vert_resize=20,print_details=False)
+clusterColorsToPatterns(img_ids=ids, preclustered=True, blur_args={'type':"gaussian",'ksize':21}, equalize_args=None,
+                        colorspace="rgb",
+                        cluster_args={'algo':"gaussian_mixture",'n':3},
+                        data_folder="D:/wing-color/data",height_resize=20)
 
 ```
+
+This is based on an old all-in-one function that I will eventually split up, make modular, and convert to a targets pipeline
 
 Prep the wing data, returning a tuple containing:
 
@@ -63,10 +78,4 @@ source("R/prepOdomaticDataFromPatterns.R")
 data <- prepOdomaticDataFromPatterns(wing_img_loc = "D:/wing-color/data/patterns/grouped2",
              patpca_img_loc = "D:/wing-color/data/patterns/grouped2resized",
              tc1_1 = 0.5529, tc1_2 = 0.2470)
-```
-
-```{r}
-
-colnames(wings)
-wings
 ```
