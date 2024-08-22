@@ -1,0 +1,55 @@
+---
+title: "Supplemental"
+---
+
+Setup
+
+```{r}
+
+library(tidyverse)
+library(brms)
+library(ggpubr)
+library(gt)
+
+bb_m <- readRDS("data/blackBrown_phylo_m1_nestedRI_spatialTerm.rds")
+by_m <- readRDS("data/brownYellow_phylo_m1_nestedRI_spatialTerm.rds")
+```
+
+Model summary tables
+
+```{r}
+
+bb_summary <- summary(bb_m, prob = 0.95)$fixed %>% 
+  tibble::rownames_to_column()
+by_summary <- summary(by_m, prob = 0.95)$fixed %>% 
+  tibble::rownames_to_column()
+
+bb_table <- gt(bb_summary)
+by_table <- gt(by_summary) 
+
+bb_table
+by_table
+
+gtsave(bb_table, filename = "figures/bb_table.html")
+gtsave(by_table, filename = "figures/by_table.html")
+```
+
+Model diagnostics plots - density overlay posterior predictive checks
+
+```{r}
+
+bb_pp <- pp_check(bb_m, ndraws = 100) + theme_classic()
+bb_pp_part1 <- bb_pp + xlim(0,0.025) + ylim(0,750)
+bb_pp_part2 <- bb_pp + xlim(0.025,1) + ylim(0,10)
+bb_pp
+bb_pp_part1
+bb_pp_part2
+
+by_pp <- pp_check(by_m, ndraws = 100) + theme_classic()
+by_pp_part1 <- by_pp + xlim(0,0.03) + ylim(0,750)
+by_pp_part2 <- by_pp + xlim(0.03,1) + ylim(0,10)
+by_pp
+by_pp_part1
+by_pp_part2
+
+```

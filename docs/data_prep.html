@@ -127,14 +127,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="./descriptive.html" rel="" target="">
  <span class="menu-text">Descriptive</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./models.html" rel="" target="">
- <span class="menu-text">Models</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./comparative.html" rel="" target="">
- <span class="menu-text">Comparative Methods</span></a>
-  </li>  
+  <li class="dropdown-header">
+ <span class="menu-text">models.qmd</span></li>
+  <li class="dropdown-header">
+ <span class="menu-text">comparative.qmd</span></li>
 </ul>
             <div class="quarto-navbar-tools ms-auto">
 </div>
@@ -171,10 +167,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>Load <strong>colorEvoHelpers</strong>, a package containing personal helpers</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(colorEvoHelpers)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#devtools::install_github("jidec/color-evo-helpers")</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(colorEvoHelpers)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Perform first clustering step</p>
+<p>Perform first clustering step, which applies recolorize to all images individually</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">recolorizeSegmentDir</span>(<span class="at">dir=</span><span class="st">"D:/GitProjects/odomatic-wings-analysis/data/segments"</span>,<span class="st">"D:/wing-color/data/patterns"</span>,<span class="at">median_blur_n =</span> <span class="dv">7</span>,<span class="at">cluster_cutoff =</span> <span class="dv">25</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -205,6 +202,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">prepOdomaticDataFromPatterns</span>(<span class="at">wing_img_loc =</span> <span class="st">"D:/wing-color/data/patterns/grouped2"</span>,</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">patpca_img_loc =</span> <span class="st">"D:/wing-color/data/patterns/grouped2resized"</span>,</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">tc1_1 =</span> <span class="fl">0.5529</span>, <span class="at">tc1_2 =</span> <span class="fl">0.2470</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(wings)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>wings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

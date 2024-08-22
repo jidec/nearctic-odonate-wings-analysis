@@ -1,0 +1,16 @@
+{
+  "hash": "b07226a65e3d565d4ad1ad11d1a755ae",
+  "result": {
+    "markdown": "---\ntitle: \"Descriptive\"\n---\n\n\nLoad packages for exploratory data visualization\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(DataExplorer)\nlibrary(GGally)\nlibrary(colorEvoHelpers)\nlibrary(dplyr)\n\n# prep isn't tested currently, so load in data already created for now\nwings <- read.csv(\"data/wings.csv\")\n# wings_new <- read.csv(\"data/wings_new.csv\")\n```\n:::\n\n\nWhat colors have come out of our clustering?\n\n\n::: {.cell}\n\n```{.r .cell-code}\nrow <- wings[1,]\n# three are notably darker, and looking at images correspond to visibly pigmented areas\nplotRGB(c(row$col_1_r,row$col_1_g,row$col_1_b),max=1)\n```\n\n::: {.cell-output-display}\n![](descriptive_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n\n```{.r .cell-code}\nplotRGB(c(row$col_2_r,row$col_2_g,row$col_2_b),max=1)\n```\n\n::: {.cell-output-display}\n![](descriptive_files/figure-html/unnamed-chunk-2-2.png){width=672}\n:::\n\n```{.r .cell-code}\nplotRGB(c(row$col_6_r,row$col_6_g,row$col_6_b),max=1)\n```\n\n::: {.cell-output-display}\n![](descriptive_files/figure-html/unnamed-chunk-2-3.png){width=672}\n:::\n\n```{.r .cell-code}\n# other 3 are different shades of white and tan, shades of unpigmented wings\nplotRGB(c(row$col_3_r,row$col_3_g,row$col_3_b),max=1)\n```\n\n::: {.cell-output-display}\n![](descriptive_files/figure-html/unnamed-chunk-2-4.png){width=672}\n:::\n\n```{.r .cell-code}\nplotRGB(c(row$col_4_r,row$col_4_g,row$col_4_b),max=1)\n```\n\n::: {.cell-output-display}\n![](descriptive_files/figure-html/unnamed-chunk-2-5.png){width=672}\n:::\n\n```{.r .cell-code}\nplotRGB(c(row$col_5_r,row$col_5_g,row$col_5_b),max=1)\n```\n\n::: {.cell-output-display}\n![](descriptive_files/figure-html/unnamed-chunk-2-6.png){width=672}\n:::\n:::\n\n\nVisualize the distribution of the Odonate percher-flyer dichotomy (flight_type) and sex in the dataset\n\n\n::: {.cell}\n\n```{.r .cell-code}\nplot_bar(select(wings, flight_type, Sex,Family))\n```\n\n::: {.cell-output-display}\n![](descriptive_files/figure-html/unnamed-chunk-3-1.png){width=672}\n:::\n:::\n\n\n1.  Many more perchers than flyers\n2.  More males than females\n\nVisualize distributions of continuous predictors and responses\n\n\n::: {.cell}\n\n```{.r .cell-code}\nplot_density(select(wings,black,brown,yellow,temp_indv,Length..inner..FW..mm.)) #temp_indv,lat,lon,mean_lightness))\n```\n\n::: {.cell-output-display}\n![](descriptive_files/figure-html/unnamed-chunk-4-1.png){width=672}\n:::\n:::\n\n\nVisualize correlations between pertinent variables\n\n\n::: {.cell}\n\n```{.r .cell-code}\nplot_correlation(select(wings,black,brown,yellow,temp_indv,Length..inner..FW..mm.,flight_type, Sex))\n```\n\n::: {.cell-output .cell-output-stderr}\n```\nWarning: Removed 34 rows containing missing values (`geom_text()`).\n```\n:::\n\n::: {.cell-output-display}\n![](descriptive_files/figure-html/unnamed-chunk-5-1.png){width=672}\n:::\n:::\n",
+    "supporting": [
+      "descriptive_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
