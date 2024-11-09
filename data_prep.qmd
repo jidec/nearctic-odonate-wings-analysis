@@ -7,41 +7,50 @@ title: "Data Prep"
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
-Load **colorEvoHelpers**, a package containing personal helpers
+Note - performing the second clustering step as I did requires Python with the package bigcrittercolor, so if you don't want to do this I would recommend skipping to the "Descriptive" page where we load the data after clustering has been performed.
+
+Manually download wing segments from Zenodo (https://zenodo.org/records/10714418). The below code assumes segments are placed in the data/segments folder, but of course you can place them anywhere as long as you provide that path.
+
+Load **colorEvoHelpers** (a personal package) installing it if necessary.
 
 ```{r}
 
 #devtools::install_github("jidec/color-evo-helpers")
 library(colorEvoHelpers)
 library(dplyr)
+library(recolorize)
 
 ```
 
-Perform first clustering step, which applies recolorize to all images individually
+Perform first clustering step, which applies clustering from the R package **recolorize** to all images individually.
 
 ```{r}
 
-recolorizeSegmentDir(dir="D:/GitProjects/odomatic-wings-analysis/data/segments","D:/wing-color/data/patterns",median_blur_n = 7,cluster_cutoff = 25) 
+# median_blur_n is the pixel size of the blur kernel
+# cluster_cutoff is the cutoff for the recolorize function, determining what clusters to keep 
+recolorizeSegmentDir(dir="data/segments","data/bcc_project/patterns",median_blur_n = 7, cluster_cutoff = 25) 
 
 ```
 
-In Python, look at dispersion and cohesion scores to pick a number of clusters
+The Python clustering function is part of the package **bigcrittercolor**.
+
+In Python, look at dispersion and cohesion scores to pick a number of clusters.
 
 ```{python}
 #!pip install git+https://github.com/jidec/bigcrittercolor.git@main
 from bigcrittercolor import clusterColorsToPatterns
-from bigcrittercolor.helpers import _getIDsInFolder
+from bigcrittercolor.helpers.ids import _getIDsInFolder
 
-ids = _getIDsInFolder("D:/wing-color/data/segments")
+ids = _getIDsInFolder("data/segments")
 ids = [i + "_hind" for i in ids] + [i + "_fore" for i in ids]
 
 clusterColorsToPatterns(img_ids=ids, preclustered=True, blur_args={'type':"gaussian",'ksize':21}, equalize_args=None,
                         colorspace="rgb",
                         cluster_args={'algo':"gaussian_mixture"},
-                        data_folder="D:/wing-color/data",height_resize=20)
+                        data_folder="data/bcc_project/patterns",height_resize=20)
 ```
 
-Perform second clustering step
+Perform second clustering step.
 
 ```{python eval=FALSE}
 
@@ -51,11 +60,9 @@ ids = [i + "_hind" for i in ids] + [i + "_fore" for i in ids]
 clusterColorsToPatterns(img_ids=ids, preclustered=True, blur_args={'type':"gaussian",'ksize':21}, equalize_args=None,
                         colorspace="rgb",
                         cluster_args={'algo':"gaussian_mixture",'n':3},
-                        data_folder="D:/wing-color/data",height_resize=20)
+                        data_folder="data/bcc_project/patterns",height_resize=20)
 
 ```
-
-This is based on an old all-in-one function that I will eventually split up, make modular, and convert to a targets pipeline
 
 Prep the wing data, returning a tuple containing:
 
@@ -75,7 +82,7 @@ Prep the wing data, returning a tuple containing:
 
 ```{r}
 source("R/prepOdomaticDataFromPatterns.R")
-data <- prepOdomaticDataFromPatterns(wing_img_loc = "D:/wing-color/data/patterns/grouped2",
-             patpca_img_loc = "D:/wing-color/data/patterns/grouped2resized",
-             tc1_1 = 0.5529, tc1_2 = 0.2470)
+data <- prepOdomaticDataFromPatterns(wing_img_loc = "data/patterns/grouped2", tc1_1 = 0.5529, tc1_2 = 0.2470)
 ```
+
+Note to self - do this more simply next time!

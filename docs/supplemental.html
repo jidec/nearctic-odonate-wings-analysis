@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>nearctic-odonate-wings-analysis - Supplemental</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">nearctic-odonate-wings-analysis</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./data_prep.html" rel="" target="">
+ <span class="menu-text">Data Prep</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./descriptive.html" rel="" target="">
+ <span class="menu-text">Descriptive</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./modeling.html" rel="" target="">
+ <span class="menu-text">Modeling</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./publication_figures.html" rel="" target="">
+ <span class="menu-text">Publication Figures</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./supplemental.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Supplemental</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Supplemental</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Load packages and read in the saved models</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tidyverse' was built under R version 4.2.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+✔ ggplot2 3.4.0     ✔ purrr   1.0.1
+✔ tibble  3.2.1     ✔ dplyr   1.1.4
+✔ tidyr   1.3.0     ✔ stringr 1.5.0
+✔ readr   2.1.2     ✔ forcats 0.5.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.2.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tibble' was built under R version 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tidyr' was built under R version 4.2.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'readr' was built under R version 4.2.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'purrr' was built under R version 4.2.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'dplyr' was built under R version 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'stringr' was built under R version 4.2.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'forcats' was built under R version 4.2.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'brms' was built under R version 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Rcpp</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'Rcpp' was built under R version 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading 'brms' package (version 2.21.0). Useful instructions
+can be found by typing help('brms'). A more detailed introduction
+to the package is available through vignette('brms_overview').
+
+Attaching package: 'brms'
+
+The following object is masked from 'package:stats':
+
+    ar</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggpubr' was built under R version 4.2.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'gt' was built under R version 4.2.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>bb_m <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/blackBrown_phylo_m1_nestedRI_spatialTerm.rds"</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>by_m <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/brownYellow_phylo_m1_nestedRI_spatialTerm.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Create model summary tables</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>bb_summary <span class="ot">&lt;-</span> <span class="fu">summary</span>(bb_m, <span class="at">prob =</span> <span class="fl">0.95</span>)<span class="sc">$</span>fixed <span class="sc">%&gt;%</span> </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>()</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>by_summary <span class="ot">&lt;-</span> <span class="fu">summary</span>(by_m, <span class="at">prob =</span> <span class="fl">0.95</span>)<span class="sc">$</span>fixed <span class="sc">%&gt;%</span> </span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There were 1 divergent transitions after warmup. Increasing
+adapt_delta above 0.99 may help. See
+http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>bb_table <span class="ot">&lt;-</span> <span class="fu">gt</span>(bb_summary)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>by_table <span class="ot">&lt;-</span> <span class="fu">gt</span>(by_summary) </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>bb_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div id="nwsjzafhhm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#nwsjzafhhm table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#nwsjzafhhm thead, #nwsjzafhhm tbody, #nwsjzafhhm tfoot, #nwsjzafhhm tr, #nwsjzafhhm td, #nwsjzafhhm th {
+  border-style: none;
+}
+
+#nwsjzafhhm p {
+  margin: 0;
+  padding: 0;
+}
+
+#nwsjzafhhm .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#nwsjzafhhm .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#nwsjzafhhm .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#nwsjzafhhm .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#nwsjzafhhm .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#nwsjzafhhm .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nwsjzafhhm .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#nwsjzafhhm .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#nwsjzafhhm .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#nwsjzafhhm .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#nwsjzafhhm .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#nwsjzafhhm .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#nwsjzafhhm .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#nwsjzafhhm .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#nwsjzafhhm .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#nwsjzafhhm .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#nwsjzafhhm .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#nwsjzafhhm .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#nwsjzafhhm .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nwsjzafhhm .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#nwsjzafhhm .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#nwsjzafhhm .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#nwsjzafhhm .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nwsjzafhhm .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#nwsjzafhhm .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#nwsjzafhhm .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nwsjzafhhm .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nwsjzafhhm .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#nwsjzafhhm .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nwsjzafhhm .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#nwsjzafhhm .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nwsjzafhhm .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#nwsjzafhhm .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nwsjzafhhm .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#nwsjzafhhm .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nwsjzafhhm .gt_left {
+  text-align: left;
+}
+
+#nwsjzafhhm .gt_center {
+  text-align: center;
+}
+
+#nwsjzafhhm .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#nwsjzafhhm .gt_font_normal {
+  font-weight: normal;
+}
+
+#nwsjzafhhm .gt_font_bold {
+  font-weight: bold;
+}
+
+#nwsjzafhhm .gt_font_italic {
+  font-style: italic;
+}
+
+#nwsjzafhhm .gt_super {
+  font-size: 65%;
+}
+
+#nwsjzafhhm .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#nwsjzafhhm .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#nwsjzafhhm .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#nwsjzafhhm .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#nwsjzafhhm .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#nwsjzafhhm .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#nwsjzafhhm .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Estimate">Estimate</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Est.Error">Est.Error</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="l-95% CI">l-95% CI</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="u-95% CI">u-95% CI</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Rhat">Rhat</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Bulk_ESS">Bulk_ESS</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Tail_ESS">Tail_ESS</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><th id="stub_1_1" scope="row" class="gt_row gt_left gt_stub">Intercept</th>
+<td headers="stub_1_1 Estimate" class="gt_row gt_right">-4.5276651315</td>
+<td headers="stub_1_1 Est.Error" class="gt_row gt_right">1.10928675</td>
+<td headers="stub_1_1 l-95% CI" class="gt_row gt_right">-6.66226225</td>
+<td headers="stub_1_1 u-95% CI" class="gt_row gt_right">-2.3178460000</td>
+<td headers="stub_1_1 Rhat" class="gt_row gt_right">1.0006397</td>
+<td headers="stub_1_1 Bulk_ESS" class="gt_row gt_right">2115.302</td>
+<td headers="stub_1_1 Tail_ESS" class="gt_row gt_right">3242.603</td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_left gt_stub">phi_Intercept</th>
+<td headers="stub_1_2 Estimate" class="gt_row gt_right">6.0830381025</td>
+<td headers="stub_1_2 Est.Error" class="gt_row gt_right">0.16486777</td>
+<td headers="stub_1_2 l-95% CI" class="gt_row gt_right">5.75841025</td>
+<td headers="stub_1_2 u-95% CI" class="gt_row gt_right">6.4140777500</td>
+<td headers="stub_1_2 Rhat" class="gt_row gt_right">1.0038106</td>
+<td headers="stub_1_2 Bulk_ESS" class="gt_row gt_right">1294.990</td>
+<td headers="stub_1_2 Tail_ESS" class="gt_row gt_right">2430.175</td></tr>
+    <tr><th id="stub_1_3" scope="row" class="gt_row gt_left gt_stub">zi_Intercept</th>
+<td headers="stub_1_3 Estimate" class="gt_row gt_right">2.7071448433</td>
+<td headers="stub_1_3 Est.Error" class="gt_row gt_right">0.71236662</td>
+<td headers="stub_1_3 l-95% CI" class="gt_row gt_right">1.29290275</td>
+<td headers="stub_1_3 u-95% CI" class="gt_row gt_right">4.0606865000</td>
+<td headers="stub_1_3 Rhat" class="gt_row gt_right">1.0021717</td>
+<td headers="stub_1_3 Bulk_ESS" class="gt_row gt_right">1320.824</td>
+<td headers="stub_1_3 Tail_ESS" class="gt_row gt_right">1968.450</td></tr>
+    <tr><th id="stub_1_4" scope="row" class="gt_row gt_left gt_stub">wing_length</th>
+<td headers="stub_1_4 Estimate" class="gt_row gt_right">0.2162540673</td>
+<td headers="stub_1_4 Est.Error" class="gt_row gt_right">0.05464696</td>
+<td headers="stub_1_4 l-95% CI" class="gt_row gt_right">0.11214380</td>
+<td headers="stub_1_4 u-95% CI" class="gt_row gt_right">0.3256864000</td>
+<td headers="stub_1_4 Rhat" class="gt_row gt_right">1.0003217</td>
+<td headers="stub_1_4 Bulk_ESS" class="gt_row gt_right">5283.045</td>
+<td headers="stub_1_4 Tail_ESS" class="gt_row gt_right">5098.930</td></tr>
+    <tr><th id="stub_1_5" scope="row" class="gt_row gt_left gt_stub">temp_indv</th>
+<td headers="stub_1_5 Estimate" class="gt_row gt_right">0.0987507107</td>
+<td headers="stub_1_5 Est.Error" class="gt_row gt_right">0.06964641</td>
+<td headers="stub_1_5 l-95% CI" class="gt_row gt_right">-0.04429018</td>
+<td headers="stub_1_5 u-95% CI" class="gt_row gt_right">0.2344792250</td>
+<td headers="stub_1_5 Rhat" class="gt_row gt_right">1.0019513</td>
+<td headers="stub_1_5 Bulk_ESS" class="gt_row gt_right">4228.509</td>
+<td headers="stub_1_5 Tail_ESS" class="gt_row gt_right">5204.969</td></tr>
+    <tr><th id="stub_1_6" scope="row" class="gt_row gt_left gt_stub">flight_typepercher</th>
+<td headers="stub_1_6 Estimate" class="gt_row gt_right">1.1159524019</td>
+<td headers="stub_1_6 Est.Error" class="gt_row gt_right">0.57493738</td>
+<td headers="stub_1_6 l-95% CI" class="gt_row gt_right">-0.01822978</td>
+<td headers="stub_1_6 u-95% CI" class="gt_row gt_right">2.2189372500</td>
+<td headers="stub_1_6 Rhat" class="gt_row gt_right">1.0003200</td>
+<td headers="stub_1_6 Bulk_ESS" class="gt_row gt_right">3082.211</td>
+<td headers="stub_1_6 Tail_ESS" class="gt_row gt_right">4670.462</td></tr>
+    <tr><th id="stub_1_7" scope="row" class="gt_row gt_left gt_stub">sexM</th>
+<td headers="stub_1_7 Estimate" class="gt_row gt_right">-0.1211839210</td>
+<td headers="stub_1_7 Est.Error" class="gt_row gt_right">0.05790818</td>
+<td headers="stub_1_7 l-95% CI" class="gt_row gt_right">-0.22797303</td>
+<td headers="stub_1_7 u-95% CI" class="gt_row gt_right">-0.0002941049</td>
+<td headers="stub_1_7 Rhat" class="gt_row gt_right">0.9998385</td>
+<td headers="stub_1_7 Bulk_ESS" class="gt_row gt_right">5503.419</td>
+<td headers="stub_1_7 Tail_ESS" class="gt_row gt_right">5178.731</td></tr>
+    <tr><th id="stub_1_8" scope="row" class="gt_row gt_left gt_stub">temp_indv:flight_typepercher</th>
+<td headers="stub_1_8 Estimate" class="gt_row gt_right">0.0258943923</td>
+<td headers="stub_1_8 Est.Error" class="gt_row gt_right">0.05962403</td>
+<td headers="stub_1_8 l-95% CI" class="gt_row gt_right">-0.08648277</td>
+<td headers="stub_1_8 u-95% CI" class="gt_row gt_right">0.1511635000</td>
+<td headers="stub_1_8 Rhat" class="gt_row gt_right">1.0016008</td>
+<td headers="stub_1_8 Bulk_ESS" class="gt_row gt_right">4740.096</td>
+<td headers="stub_1_8 Tail_ESS" class="gt_row gt_right">5384.486</td></tr>
+    <tr><th id="stub_1_9" scope="row" class="gt_row gt_left gt_stub">flight_typepercher:sexM</th>
+<td headers="stub_1_9 Estimate" class="gt_row gt_right">0.1733500388</td>
+<td headers="stub_1_9 Est.Error" class="gt_row gt_right">0.06160333</td>
+<td headers="stub_1_9 l-95% CI" class="gt_row gt_right">0.04843533</td>
+<td headers="stub_1_9 u-95% CI" class="gt_row gt_right">0.2898606500</td>
+<td headers="stub_1_9 Rhat" class="gt_row gt_right">0.9996731</td>
+<td headers="stub_1_9 Bulk_ESS" class="gt_row gt_right">6024.413</td>
+<td headers="stub_1_9 Tail_ESS" class="gt_row gt_right">5426.507</td></tr>
+    <tr><th id="stub_1_10" scope="row" class="gt_row gt_left gt_stub">phi_temp_indv</th>
+<td headers="stub_1_10 Estimate" class="gt_row gt_right">-0.3322417266</td>
+<td headers="stub_1_10 Est.Error" class="gt_row gt_right">0.07123384</td>
+<td headers="stub_1_10 l-95% CI" class="gt_row gt_right">-0.47360107</td>
+<td headers="stub_1_10 u-95% CI" class="gt_row gt_right">-0.1958198250</td>
+<td headers="stub_1_10 Rhat" class="gt_row gt_right">1.0012592</td>
+<td headers="stub_1_10 Bulk_ESS" class="gt_row gt_right">4637.632</td>
+<td headers="stub_1_10 Tail_ESS" class="gt_row gt_right">5842.396</td></tr>
+    <tr><th id="stub_1_11" scope="row" class="gt_row gt_left gt_stub">zi_wing_length</th>
+<td headers="stub_1_11 Estimate" class="gt_row gt_right">-1.5268252261</td>
+<td headers="stub_1_11 Est.Error" class="gt_row gt_right">0.22061660</td>
+<td headers="stub_1_11 l-95% CI" class="gt_row gt_right">-1.97057350</td>
+<td headers="stub_1_11 u-95% CI" class="gt_row gt_right">-1.0910855000</td>
+<td headers="stub_1_11 Rhat" class="gt_row gt_right">1.0007466</td>
+<td headers="stub_1_11 Bulk_ESS" class="gt_row gt_right">2406.234</td>
+<td headers="stub_1_11 Tail_ESS" class="gt_row gt_right">3399.187</td></tr>
+    <tr><th id="stub_1_12" scope="row" class="gt_row gt_left gt_stub">zi_temp_indv</th>
+<td headers="stub_1_12 Estimate" class="gt_row gt_right">0.6003061364</td>
+<td headers="stub_1_12 Est.Error" class="gt_row gt_right">0.08974760</td>
+<td headers="stub_1_12 l-95% CI" class="gt_row gt_right">0.42425603</td>
+<td headers="stub_1_12 u-95% CI" class="gt_row gt_right">0.7753026500</td>
+<td headers="stub_1_12 Rhat" class="gt_row gt_right">1.0000832</td>
+<td headers="stub_1_12 Bulk_ESS" class="gt_row gt_right">5020.524</td>
+<td headers="stub_1_12 Tail_ESS" class="gt_row gt_right">5120.373</td></tr>
+    <tr><th id="stub_1_13" scope="row" class="gt_row gt_left gt_stub">zi_flight_typepercher</th>
+<td headers="stub_1_13 Estimate" class="gt_row gt_right">-0.4463208730</td>
+<td headers="stub_1_13 Est.Error" class="gt_row gt_right">0.76793695</td>
+<td headers="stub_1_13 l-95% CI" class="gt_row gt_right">-1.91479875</td>
+<td headers="stub_1_13 u-95% CI" class="gt_row gt_right">1.1059605000</td>
+<td headers="stub_1_13 Rhat" class="gt_row gt_right">1.0006828</td>
+<td headers="stub_1_13 Bulk_ESS" class="gt_row gt_right">1069.864</td>
+<td headers="stub_1_13 Tail_ESS" class="gt_row gt_right">2129.942</td></tr>
+    <tr><th id="stub_1_14" scope="row" class="gt_row gt_left gt_stub">zi_sexM</th>
+<td headers="stub_1_14 Estimate" class="gt_row gt_right">-1.0250841575</td>
+<td headers="stub_1_14 Est.Error" class="gt_row gt_right">0.10822225</td>
+<td headers="stub_1_14 l-95% CI" class="gt_row gt_right">-1.24250275</td>
+<td headers="stub_1_14 u-95% CI" class="gt_row gt_right">-0.8182290000</td>
+<td headers="stub_1_14 Rhat" class="gt_row gt_right">1.0006139</td>
+<td headers="stub_1_14 Bulk_ESS" class="gt_row gt_right">8499.190</td>
+<td headers="stub_1_14 Tail_ESS" class="gt_row gt_right">5986.850</td></tr>
+    <tr><th id="stub_1_15" scope="row" class="gt_row gt_left gt_stub">t2latRoundlonRound_1</th>
+<td headers="stub_1_15 Estimate" class="gt_row gt_right">-0.0007196809</td>
+<td headers="stub_1_15 Est.Error" class="gt_row gt_right">0.03642289</td>
+<td headers="stub_1_15 l-95% CI" class="gt_row gt_right">-0.07521080</td>
+<td headers="stub_1_15 u-95% CI" class="gt_row gt_right">0.0683186875</td>
+<td headers="stub_1_15 Rhat" class="gt_row gt_right">1.0011127</td>
+<td headers="stub_1_15 Bulk_ESS" class="gt_row gt_right">4270.392</td>
+<td headers="stub_1_15 Tail_ESS" class="gt_row gt_right">5035.483</td></tr>
+    <tr><th id="stub_1_16" scope="row" class="gt_row gt_left gt_stub">t2latRoundlonRound_2</th>
+<td headers="stub_1_16 Estimate" class="gt_row gt_right">-0.1438599316</td>
+<td headers="stub_1_16 Est.Error" class="gt_row gt_right">0.06217080</td>
+<td headers="stub_1_16 l-95% CI" class="gt_row gt_right">-0.27109870</td>
+<td headers="stub_1_16 u-95% CI" class="gt_row gt_right">-0.0269602675</td>
+<td headers="stub_1_16 Rhat" class="gt_row gt_right">1.0004217</td>
+<td headers="stub_1_16 Bulk_ESS" class="gt_row gt_right">4819.822</td>
+<td headers="stub_1_16 Tail_ESS" class="gt_row gt_right">5708.773</td></tr>
+    <tr><th id="stub_1_17" scope="row" class="gt_row gt_left gt_stub">t2latRoundlonRound_3</th>
+<td headers="stub_1_17 Estimate" class="gt_row gt_right">0.0045874120</td>
+<td headers="stub_1_17 Est.Error" class="gt_row gt_right">0.03784004</td>
+<td headers="stub_1_17 l-95% CI" class="gt_row gt_right">-0.06991745</td>
+<td headers="stub_1_17 u-95% CI" class="gt_row gt_right">0.0805199650</td>
+<td headers="stub_1_17 Rhat" class="gt_row gt_right">1.0007402</td>
+<td headers="stub_1_17 Bulk_ESS" class="gt_row gt_right">4551.943</td>
+<td headers="stub_1_17 Tail_ESS" class="gt_row gt_right">4997.438</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>by_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div id="grbpzfptsl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#grbpzfptsl table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#grbpzfptsl thead, #grbpzfptsl tbody, #grbpzfptsl tfoot, #grbpzfptsl tr, #grbpzfptsl td, #grbpzfptsl th {
+  border-style: none;
+}
+
+#grbpzfptsl p {
+  margin: 0;
+  padding: 0;
+}
+
+#grbpzfptsl .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#grbpzfptsl .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#grbpzfptsl .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#grbpzfptsl .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#grbpzfptsl .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#grbpzfptsl .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#grbpzfptsl .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#grbpzfptsl .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#grbpzfptsl .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#grbpzfptsl .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#grbpzfptsl .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#grbpzfptsl .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#grbpzfptsl .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#grbpzfptsl .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#grbpzfptsl .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#grbpzfptsl .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#grbpzfptsl .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#grbpzfptsl .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#grbpzfptsl .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#grbpzfptsl .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#grbpzfptsl .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#grbpzfptsl .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#grbpzfptsl .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#grbpzfptsl .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#grbpzfptsl .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#grbpzfptsl .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#grbpzfptsl .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#grbpzfptsl .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#grbpzfptsl .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#grbpzfptsl .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#grbpzfptsl .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#grbpzfptsl .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#grbpzfptsl .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#grbpzfptsl .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#grbpzfptsl .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#grbpzfptsl .gt_left {
+  text-align: left;
+}
+
+#grbpzfptsl .gt_center {
+  text-align: center;
+}
+
+#grbpzfptsl .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#grbpzfptsl .gt_font_normal {
+  font-weight: normal;
+}
+
+#grbpzfptsl .gt_font_bold {
+  font-weight: bold;
+}
+
+#grbpzfptsl .gt_font_italic {
+  font-style: italic;
+}
+
+#grbpzfptsl .gt_super {
+  font-size: 65%;
+}
+
+#grbpzfptsl .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#grbpzfptsl .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#grbpzfptsl .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#grbpzfptsl .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#grbpzfptsl .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#grbpzfptsl .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#grbpzfptsl .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Estimate">Estimate</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Est.Error">Est.Error</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="l-95% CI">l-95% CI</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="u-95% CI">u-95% CI</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Rhat">Rhat</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Bulk_ESS">Bulk_ESS</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Tail_ESS">Tail_ESS</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><th id="stub_1_1" scope="row" class="gt_row gt_left gt_stub">Intercept</th>
+<td headers="stub_1_1 Estimate" class="gt_row gt_right">-3.148101774</td>
+<td headers="stub_1_1 Est.Error" class="gt_row gt_right">0.88990676</td>
+<td headers="stub_1_1 l-95% CI" class="gt_row gt_right">-4.88665875</td>
+<td headers="stub_1_1 u-95% CI" class="gt_row gt_right">-1.37509225</td>
+<td headers="stub_1_1 Rhat" class="gt_row gt_right">1.0004733</td>
+<td headers="stub_1_1 Bulk_ESS" class="gt_row gt_right">2521.4854</td>
+<td headers="stub_1_1 Tail_ESS" class="gt_row gt_right">3665.013</td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_left gt_stub">phi_Intercept</th>
+<td headers="stub_1_2 Estimate" class="gt_row gt_right">4.984058688</td>
+<td headers="stub_1_2 Est.Error" class="gt_row gt_right">0.16230907</td>
+<td headers="stub_1_2 l-95% CI" class="gt_row gt_right">4.66051525</td>
+<td headers="stub_1_2 u-95% CI" class="gt_row gt_right">5.30849300</td>
+<td headers="stub_1_2 Rhat" class="gt_row gt_right">1.0063449</td>
+<td headers="stub_1_2 Bulk_ESS" class="gt_row gt_right">582.0368</td>
+<td headers="stub_1_2 Tail_ESS" class="gt_row gt_right">1080.530</td></tr>
+    <tr><th id="stub_1_3" scope="row" class="gt_row gt_left gt_stub">zi_Intercept</th>
+<td headers="stub_1_3 Estimate" class="gt_row gt_right">-3.740895639</td>
+<td headers="stub_1_3 Est.Error" class="gt_row gt_right">0.69906008</td>
+<td headers="stub_1_3 l-95% CI" class="gt_row gt_right">-5.19817625</td>
+<td headers="stub_1_3 u-95% CI" class="gt_row gt_right">-2.46850625</td>
+<td headers="stub_1_3 Rhat" class="gt_row gt_right">1.0002328</td>
+<td headers="stub_1_3 Bulk_ESS" class="gt_row gt_right">4257.6413</td>
+<td headers="stub_1_3 Tail_ESS" class="gt_row gt_right">5585.685</td></tr>
+    <tr><th id="stub_1_4" scope="row" class="gt_row gt_left gt_stub">wing_length</th>
+<td headers="stub_1_4 Estimate" class="gt_row gt_right">0.212359888</td>
+<td headers="stub_1_4 Est.Error" class="gt_row gt_right">0.04181256</td>
+<td headers="stub_1_4 l-95% CI" class="gt_row gt_right">0.13036703</td>
+<td headers="stub_1_4 u-95% CI" class="gt_row gt_right">0.29367887</td>
+<td headers="stub_1_4 Rhat" class="gt_row gt_right">1.0012927</td>
+<td headers="stub_1_4 Bulk_ESS" class="gt_row gt_right">9967.3609</td>
+<td headers="stub_1_4 Tail_ESS" class="gt_row gt_right">6691.654</td></tr>
+    <tr><th id="stub_1_5" scope="row" class="gt_row gt_left gt_stub">temp_indv</th>
+<td headers="stub_1_5 Estimate" class="gt_row gt_right">0.083093121</td>
+<td headers="stub_1_5 Est.Error" class="gt_row gt_right">0.06728538</td>
+<td headers="stub_1_5 l-95% CI" class="gt_row gt_right">-0.04573421</td>
+<td headers="stub_1_5 u-95% CI" class="gt_row gt_right">0.21540752</td>
+<td headers="stub_1_5 Rhat" class="gt_row gt_right">1.0012183</td>
+<td headers="stub_1_5 Bulk_ESS" class="gt_row gt_right">4299.5858</td>
+<td headers="stub_1_5 Tail_ESS" class="gt_row gt_right">5441.740</td></tr>
+    <tr><th id="stub_1_6" scope="row" class="gt_row gt_left gt_stub">flight_typepercher</th>
+<td headers="stub_1_6 Estimate" class="gt_row gt_right">0.737579316</td>
+<td headers="stub_1_6 Est.Error" class="gt_row gt_right">0.51139342</td>
+<td headers="stub_1_6 l-95% CI" class="gt_row gt_right">-0.27878295</td>
+<td headers="stub_1_6 u-95% CI" class="gt_row gt_right">1.72560250</td>
+<td headers="stub_1_6 Rhat" class="gt_row gt_right">1.0005874</td>
+<td headers="stub_1_6 Bulk_ESS" class="gt_row gt_right">3820.7683</td>
+<td headers="stub_1_6 Tail_ESS" class="gt_row gt_right">4896.712</td></tr>
+    <tr><th id="stub_1_7" scope="row" class="gt_row gt_left gt_stub">sexM</th>
+<td headers="stub_1_7 Estimate" class="gt_row gt_right">-0.067404117</td>
+<td headers="stub_1_7 Est.Error" class="gt_row gt_right">0.05141467</td>
+<td headers="stub_1_7 l-95% CI" class="gt_row gt_right">-0.16718242</td>
+<td headers="stub_1_7 u-95% CI" class="gt_row gt_right">0.03437644</td>
+<td headers="stub_1_7 Rhat" class="gt_row gt_right">1.0002653</td>
+<td headers="stub_1_7 Bulk_ESS" class="gt_row gt_right">6326.7601</td>
+<td headers="stub_1_7 Tail_ESS" class="gt_row gt_right">6146.343</td></tr>
+    <tr><th id="stub_1_8" scope="row" class="gt_row gt_left gt_stub">temp_indv:flight_typepercher</th>
+<td headers="stub_1_8 Estimate" class="gt_row gt_right">0.003562942</td>
+<td headers="stub_1_8 Est.Error" class="gt_row gt_right">0.05776505</td>
+<td headers="stub_1_8 l-95% CI" class="gt_row gt_right">-0.10810462</td>
+<td headers="stub_1_8 u-95% CI" class="gt_row gt_right">0.11547682</td>
+<td headers="stub_1_8 Rhat" class="gt_row gt_right">1.0008937</td>
+<td headers="stub_1_8 Bulk_ESS" class="gt_row gt_right">5571.7530</td>
+<td headers="stub_1_8 Tail_ESS" class="gt_row gt_right">5641.405</td></tr>
+    <tr><th id="stub_1_9" scope="row" class="gt_row gt_left gt_stub">flight_typepercher:sexM</th>
+<td headers="stub_1_9 Estimate" class="gt_row gt_right">0.012555641</td>
+<td headers="stub_1_9 Est.Error" class="gt_row gt_right">0.05279774</td>
+<td headers="stub_1_9 l-95% CI" class="gt_row gt_right">-0.09095624</td>
+<td headers="stub_1_9 u-95% CI" class="gt_row gt_right">0.11702230</td>
+<td headers="stub_1_9 Rhat" class="gt_row gt_right">1.0002519</td>
+<td headers="stub_1_9 Bulk_ESS" class="gt_row gt_right">6462.6708</td>
+<td headers="stub_1_9 Tail_ESS" class="gt_row gt_right">6195.905</td></tr>
+    <tr><th id="stub_1_10" scope="row" class="gt_row gt_left gt_stub">phi_temp_indv</th>
+<td headers="stub_1_10 Estimate" class="gt_row gt_right">-0.267775750</td>
+<td headers="stub_1_10 Est.Error" class="gt_row gt_right">0.04767827</td>
+<td headers="stub_1_10 l-95% CI" class="gt_row gt_right">-0.36355532</td>
+<td headers="stub_1_10 u-95% CI" class="gt_row gt_right">-0.17440980</td>
+<td headers="stub_1_10 Rhat" class="gt_row gt_right">1.0002034</td>
+<td headers="stub_1_10 Bulk_ESS" class="gt_row gt_right">4711.8713</td>
+<td headers="stub_1_10 Tail_ESS" class="gt_row gt_right">5471.847</td></tr>
+    <tr><th id="stub_1_11" scope="row" class="gt_row gt_left gt_stub">zi_wing_length</th>
+<td headers="stub_1_11 Estimate" class="gt_row gt_right">-1.187550026</td>
+<td headers="stub_1_11 Est.Error" class="gt_row gt_right">0.20122209</td>
+<td headers="stub_1_11 l-95% CI" class="gt_row gt_right">-1.59814300</td>
+<td headers="stub_1_11 u-95% CI" class="gt_row gt_right">-0.79997398</td>
+<td headers="stub_1_11 Rhat" class="gt_row gt_right">1.0004926</td>
+<td headers="stub_1_11 Bulk_ESS" class="gt_row gt_right">2819.5424</td>
+<td headers="stub_1_11 Tail_ESS" class="gt_row gt_right">4788.065</td></tr>
+    <tr><th id="stub_1_12" scope="row" class="gt_row gt_left gt_stub">zi_temp_indv</th>
+<td headers="stub_1_12 Estimate" class="gt_row gt_right">0.117605183</td>
+<td headers="stub_1_12 Est.Error" class="gt_row gt_right">0.11370667</td>
+<td headers="stub_1_12 l-95% CI" class="gt_row gt_right">-0.10383457</td>
+<td headers="stub_1_12 u-95% CI" class="gt_row gt_right">0.34328627</td>
+<td headers="stub_1_12 Rhat" class="gt_row gt_right">1.0003119</td>
+<td headers="stub_1_12 Bulk_ESS" class="gt_row gt_right">7743.9811</td>
+<td headers="stub_1_12 Tail_ESS" class="gt_row gt_right">6502.946</td></tr>
+    <tr><th id="stub_1_13" scope="row" class="gt_row gt_left gt_stub">zi_flight_typepercher</th>
+<td headers="stub_1_13 Estimate" class="gt_row gt_right">-0.030432418</td>
+<td headers="stub_1_13 Est.Error" class="gt_row gt_right">0.71876755</td>
+<td headers="stub_1_13 l-95% CI" class="gt_row gt_right">-1.38123850</td>
+<td headers="stub_1_13 u-95% CI" class="gt_row gt_right">1.42911225</td>
+<td headers="stub_1_13 Rhat" class="gt_row gt_right">1.0008620</td>
+<td headers="stub_1_13 Bulk_ESS" class="gt_row gt_right">4268.4197</td>
+<td headers="stub_1_13 Tail_ESS" class="gt_row gt_right">5657.992</td></tr>
+    <tr><th id="stub_1_14" scope="row" class="gt_row gt_left gt_stub">zi_sexM</th>
+<td headers="stub_1_14 Estimate" class="gt_row gt_right">-0.904499112</td>
+<td headers="stub_1_14 Est.Error" class="gt_row gt_right">0.14237704</td>
+<td headers="stub_1_14 l-95% CI" class="gt_row gt_right">-1.18420500</td>
+<td headers="stub_1_14 u-95% CI" class="gt_row gt_right">-0.62359690</td>
+<td headers="stub_1_14 Rhat" class="gt_row gt_right">1.0009826</td>
+<td headers="stub_1_14 Bulk_ESS" class="gt_row gt_right">13316.8416</td>
+<td headers="stub_1_14 Tail_ESS" class="gt_row gt_right">5913.259</td></tr>
+    <tr><th id="stub_1_15" scope="row" class="gt_row gt_left gt_stub">t2latlon_1</th>
+<td headers="stub_1_15 Estimate" class="gt_row gt_right">-0.018461812</td>
+<td headers="stub_1_15 Est.Error" class="gt_row gt_right">0.03104168</td>
+<td headers="stub_1_15 l-95% CI" class="gt_row gt_right">-0.07757623</td>
+<td headers="stub_1_15 u-95% CI" class="gt_row gt_right">0.04473045</td>
+<td headers="stub_1_15 Rhat" class="gt_row gt_right">1.0003608</td>
+<td headers="stub_1_15 Bulk_ESS" class="gt_row gt_right">4968.7799</td>
+<td headers="stub_1_15 Tail_ESS" class="gt_row gt_right">4659.282</td></tr>
+    <tr><th id="stub_1_16" scope="row" class="gt_row gt_left gt_stub">t2latlon_2</th>
+<td headers="stub_1_16 Estimate" class="gt_row gt_right">-0.069496123</td>
+<td headers="stub_1_16 Est.Error" class="gt_row gt_right">0.04963546</td>
+<td headers="stub_1_16 l-95% CI" class="gt_row gt_right">-0.16559347</td>
+<td headers="stub_1_16 u-95% CI" class="gt_row gt_right">0.03422042</td>
+<td headers="stub_1_16 Rhat" class="gt_row gt_right">1.0005858</td>
+<td headers="stub_1_16 Bulk_ESS" class="gt_row gt_right">5810.4665</td>
+<td headers="stub_1_16 Tail_ESS" class="gt_row gt_right">6165.698</td></tr>
+    <tr><th id="stub_1_17" scope="row" class="gt_row gt_left gt_stub">t2latlon_3</th>
+<td headers="stub_1_17 Estimate" class="gt_row gt_right">-0.031710607</td>
+<td headers="stub_1_17 Est.Error" class="gt_row gt_right">0.03498716</td>
+<td headers="stub_1_17 l-95% CI" class="gt_row gt_right">-0.09465432</td>
+<td headers="stub_1_17 u-95% CI" class="gt_row gt_right">0.04296342</td>
+<td headers="stub_1_17 Rhat" class="gt_row gt_right">0.9999612</td>
+<td headers="stub_1_17 Bulk_ESS" class="gt_row gt_right">4143.6705</td>
+<td headers="stub_1_17 Tail_ESS" class="gt_row gt_right">4025.747</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gtsave</span>(bb_table, <span class="at">filename =</span> <span class="st">"figures/bb_table.html"</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gtsave</span>(by_table, <span class="at">filename =</span> <span class="st">"figures/by_table.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Plot model diagnostics (density overlay posterior predictive checks)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>bb_pp <span class="ot">&lt;-</span> <span class="fu">pp_check</span>(bb_m, <span class="at">ndraws =</span> <span class="dv">100</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>()</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>bb_pp_part1 <span class="ot">&lt;-</span> bb_pp <span class="sc">+</span> <span class="fu">xlim</span>(<span class="dv">0</span>,<span class="fl">0.025</span>) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">750</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>bb_pp_part2 <span class="ot">&lt;-</span> bb_pp <span class="sc">+</span> <span class="fu">xlim</span>(<span class="fl">0.025</span>,<span class="dv">1</span>) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">10</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>bb_pp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="supplemental_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>bb_pp_part1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 71078 rows containing non-finite values (`stat_density()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 672 rows containing non-finite values (`stat_density()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 128 rows containing missing values (`geom_line()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="supplemental_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>bb_pp_part2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 398722 rows containing non-finite values (`stat_density()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 4025 rows containing non-finite values (`stat_density()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="supplemental_files/figure-html/unnamed-chunk-3-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>by_pp <span class="ot">&lt;-</span> <span class="fu">pp_check</span>(by_m, <span class="at">ndraws =</span> <span class="dv">100</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>()</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>by_pp_part1 <span class="ot">&lt;-</span> by_pp <span class="sc">+</span> <span class="fu">xlim</span>(<span class="dv">0</span>,<span class="fl">0.03</span>) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">750</span>)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>by_pp_part2 <span class="ot">&lt;-</span> by_pp <span class="sc">+</span> <span class="fu">xlim</span>(<span class="fl">0.03</span>,<span class="dv">1</span>) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">10</span>)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>by_pp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="supplemental_files/figure-html/unnamed-chunk-3-4.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>by_pp_part1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 196794 rows containing non-finite values (`stat_density()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1875 rows containing non-finite values (`stat_density()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="supplemental_files/figure-html/unnamed-chunk-3-5.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>by_pp_part2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 273006 rows containing non-finite values (`stat_density()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2823 rows containing non-finite values (`stat_density()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="supplemental_files/figure-html/unnamed-chunk-3-6.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>odomatic-wings-analysis - Data Prep</title>
+<title>nearctic-odonate-wings-analysis - Data Prep</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -106,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">odomatic-wings-analysis</span>
+    <span class="navbar-title">nearctic-odonate-wings-analysis</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -127,10 +127,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="./descriptive.html" rel="" target="">
  <span class="menu-text">Descriptive</span></a>
   </li>  
-  <li class="dropdown-header">
- <span class="menu-text">models.qmd</span></li>
-  <li class="dropdown-header">
- <span class="menu-text">comparative.qmd</span></li>
+  <li class="nav-item">
+    <a class="nav-link" href="./modeling.html" rel="" target="">
+ <span class="menu-text">Modeling</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./publication_figures.html" rel="" target="">
+ <span class="menu-text">Publication Figures</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./supplemental.html" rel="" target="">
+ <span class="menu-text">Supplemental</span></a>
+  </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto">
 </div>
@@ -165,29 +173,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Load <strong>colorEvoHelpers</strong>, a package containing personal helpers</p>
+<p>Note - performing the second clustering step as I did requires Python with the package bigcrittercolor, so if you don’t want to do this I would recommend skipping to the “Descriptive” page where we load the data after clustering has been performed.</p>
+<p>Manually download wing segments from Zenodo (https://zenodo.org/records/10714418). The below code assumes segments are placed in the data/segments folder, but of course you can place them anywhere as long as you provide that path.</p>
+<p>Load <strong>colorEvoHelpers</strong> (a personal package) installing it if necessary.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#devtools::install_github("jidec/color-evo-helpers")</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(colorEvoHelpers)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(recolorize)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Perform first clustering step, which applies recolorize to all images individually</p>
+<p>Perform first clustering step, which applies clustering from the R package <strong>recolorize</strong> to all images individually.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">recolorizeSegmentDir</span>(<span class="at">dir=</span><span class="st">"D:/GitProjects/odomatic-wings-analysis/data/segments"</span>,<span class="st">"D:/wing-color/data/patterns"</span>,<span class="at">median_blur_n =</span> <span class="dv">7</span>,<span class="at">cluster_cutoff =</span> <span class="dv">25</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># median_blur_n is the pixel size of the blur kernel</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># cluster_cutoff is the cutoff for the recolorize function, determining what clusters to keep </span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">recolorizeSegmentDir</span>(<span class="at">dir=</span><span class="st">"data/segments"</span>,<span class="st">"data/bcc_project/patterns"</span>,<span class="at">median_blur_n =</span> <span class="dv">7</span>, <span class="at">cluster_cutoff =</span> <span class="dv">25</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Perform second clustering step in Python</p>
+<p>The Python clustering function is part of the package <strong>bigcrittercolor</strong>.</p>
+<p>In Python, look at dispersion and cohesion scores to pick a number of clusters.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ids <span class="op">=</span> getFilterImageIDs(proj_dir<span class="op">=</span><span class="st">"D:/wing-color"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ids <span class="op">=</span> [i <span class="op">+</span> <span class="st">"_hind"</span> <span class="cf">for</span> i <span class="kw">in</span> ids] <span class="op">+</span> [i <span class="op">+</span> <span class="st">"_fore"</span> <span class="cf">for</span> i <span class="kw">in</span> ids]</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>random.Random().shuffle(ids) <span class="co"># 4 is the seed</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>ids <span class="op">=</span> ids[<span class="dv">0</span>:<span class="dv">1000</span>]</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>colorDiscretize(ids,preclustered<span class="op">=</span><span class="va">True</span>, group_cluster_raw_ids<span class="op">=</span><span class="va">True</span>, show<span class="op">=</span><span class="va">True</span>, show_indv<span class="op">=</span><span class="va">False</span>,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                cluster_model<span class="op">=</span><span class="st">"gaussian_mixture"</span>,</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                nclusters<span class="op">=</span><span class="dv">3</span>, nclust_metric<span class="op">=</span><span class="st">"ch"</span>, scale<span class="op">=</span><span class="va">False</span>,</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>                bilat_blur<span class="op">=</span><span class="va">False</span>,gaussian_blur<span class="op">=</span><span class="va">False</span>,median_blur<span class="op">=</span><span class="va">False</span>, colorspace<span class="op">=</span><span class="st">"rgb"</span>,</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>                proj_dir<span class="op">=</span><span class="st">"D:/wing-color"</span>,</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>                write_subfolder<span class="op">=</span><span class="st">"grouped2"</span>,vert_resize<span class="op">=</span><span class="dv">20</span>,print_details<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install git+https://github.com/jidec/bigcrittercolor.git@main</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bigcrittercolor <span class="im">import</span> clusterColorsToPatterns</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bigcrittercolor.helpers.ids <span class="im">import</span> _getIDsInFolder</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>ids <span class="op">=</span> _getIDsInFolder(<span class="st">"data/segments"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>ids <span class="op">=</span> [i <span class="op">+</span> <span class="st">"_hind"</span> <span class="cf">for</span> i <span class="kw">in</span> ids] <span class="op">+</span> [i <span class="op">+</span> <span class="st">"_fore"</span> <span class="cf">for</span> i <span class="kw">in</span> ids]</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>clusterColorsToPatterns(img_ids<span class="op">=</span>ids, preclustered<span class="op">=</span><span class="va">True</span>, blur_args<span class="op">=</span>{<span class="st">'type'</span>:<span class="st">"gaussian"</span>,<span class="st">'ksize'</span>:<span class="dv">21</span>}, equalize_args<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>                        colorspace<span class="op">=</span><span class="st">"rgb"</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>                        cluster_args<span class="op">=</span>{<span class="st">'algo'</span>:<span class="st">"gaussian_mixture"</span>},</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>                        data_folder<span class="op">=</span><span class="st">"data/bcc_project/patterns"</span>,height_resize<span class="op">=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Perform second clustering step.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ids <span class="op">=</span> _getIDsInFolder(<span class="st">"D:/wing-color/data/segments"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ids <span class="op">=</span> [i <span class="op">+</span> <span class="st">"_hind"</span> <span class="cf">for</span> i <span class="kw">in</span> ids] <span class="op">+</span> [i <span class="op">+</span> <span class="st">"_fore"</span> <span class="cf">for</span> i <span class="kw">in</span> ids]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>clusterColorsToPatterns(img_ids<span class="op">=</span>ids, preclustered<span class="op">=</span><span class="va">True</span>, blur_args<span class="op">=</span>{<span class="st">'type'</span>:<span class="st">"gaussian"</span>,<span class="st">'ksize'</span>:<span class="dv">21</span>}, equalize_args<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                        colorspace<span class="op">=</span><span class="st">"rgb"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                        cluster_args<span class="op">=</span>{<span class="st">'algo'</span>:<span class="st">"gaussian_mixture"</span>,<span class="st">'n'</span>:<span class="dv">3</span>},</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                        data_folder<span class="op">=</span><span class="st">"data/bcc_project/patterns"</span>,height_resize<span class="op">=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Prep the wing data, returning a tuple containing:</p>
 <p>1. individual-level data</p>
@@ -198,15 +222,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>6. species-sex level data</p>
 <p>7. species-sex-forehind level data</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/prepOdomaticDataFromPatterns.R"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">prepOdomaticDataFromPatterns</span>(<span class="at">wing_img_loc =</span> <span class="st">"D:/wing-color/data/patterns/grouped2"</span>,</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">patpca_img_loc =</span> <span class="st">"D:/wing-color/data/patterns/grouped2resized"</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">tc1_1 =</span> <span class="fl">0.5529</span>, <span class="at">tc1_2 =</span> <span class="fl">0.2470</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/prepOdomaticDataFromPatterns.R"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">prepOdomaticDataFromPatterns</span>(<span class="at">wing_img_loc =</span> <span class="st">"data/patterns/grouped2"</span>, <span class="at">tc1_1 =</span> <span class="fl">0.5529</span>, <span class="at">tc1_2 =</span> <span class="fl">0.2470</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(wings)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>wings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>Note to self - do this more simply next time!</p>
 
 
 

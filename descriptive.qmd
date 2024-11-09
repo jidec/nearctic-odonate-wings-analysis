@@ -2,7 +2,7 @@
 title: "Descriptive"
 ---
 
-Load packages for exploratory data visualization
+Load packages for exploratory data visualization, and prep data
 
 ```{r, message=FALSE, warning=FALSE}
 
@@ -11,9 +11,8 @@ library(GGally)
 library(colorEvoHelpers)
 library(dplyr)
 
-# prep isn't tested currently, so load in data already created for now
-#wings <- read.csv("data/wings.csv")
-wings <- read.csv("data/wings_new.csv")
+wings <- read.csv("data/wings.csv")
+
 wings$blackbrown <- wings$black
 wings$brownyellow <- wings$brown
 wings$sex <- wings$Sex
@@ -22,14 +21,6 @@ wings$temperature <- wings$temp_indv
 wings$flight_type <- wings$flight_type_rm_inter
 wings$is_damselfly <- wings$Suborder == "Zygoptera"
 
-wings <- select(wings, blackbrown, brownyellow, 
-                wing_length, flight_type, sex,
-                lat, lon, temp_indv,
-                species, is_damselfly,
-                wing_type) 
-
-write.csv(wings,"wings_for_mike.csv")
-
 ```
 
 What colors have come out of our clustering?
@@ -37,14 +28,10 @@ What colors have come out of our clustering?
 ```{r}
 
 row <- wings[1,]
-# three are notably darker, and looking at images correspond to visibly pigmented areas
+
 plotRGB(c(row$col_1_r,row$col_1_g,row$col_1_b),max=1)
 plotRGB(c(row$col_2_r,row$col_2_g,row$col_2_b),max=1)
-plotRGB(c(row$col_6_r,row$col_6_g,row$col_6_b),max=1)
-# other 3 are different shades of white and tan, shades of unpigmented wings
 plotRGB(c(row$col_3_r,row$col_3_g,row$col_3_b),max=1)
-plotRGB(c(row$col_4_r,row$col_4_g,row$col_4_b),max=1)
-plotRGB(c(row$col_5_r,row$col_5_g,row$col_5_b),max=1)
 ```
 
 Visualize the distribution of the Odonate percher-flyer dichotomy (flight_type) and sex in the dataset
@@ -64,49 +51,13 @@ Visualize distributions of continuous predictors and responses
 plot_density(select(wings,blackbrown,brownyellow,temp_indv,wing_length)) #temp_indv,lat,lon,mean_lightness))
 ```
 
+Many zeroes in black-brown and brown-yellow, while wing length is close to a normal distribution
+
 Visualize correlations between pertinent variables
 
 ```{r}
 
-plot_correlation(select(wings,black,brown,yellow,temp_indv,Length..inner..FW..mm.,flight_type, Sex))
-
-
-```
-
-```{r}
-
-sp <- wings %>% group_by(species) %>% summarize(blackbrown = mean(black),brownyellow = mean(brown))
-
-nrow(dplyr::filter(sp, blackbrown > 0.05)) / nrow(sp)
-nrow(dplyr::filter(sp, brownyellow > 0.05)) / nrow(sp)
-```
-
-Plot densities of blackbrown and brownyellow
-
-```{r}
-
-ggplot(data=wings, aes(x = black)) +
-  geom_density(fill = "blue", color = "black", alpha = 0.5) +
-  xlab("Variable Name") +
-  ylab("Density") +
-  ggtitle("Density Plot of Continuous Variable")
-
-ggplot(data=sp, aes(x = blackbrown)) +
-  geom_density(fill = "blue", color = "black", alpha = 0.5) +
-  xlab("Variable Name") +
-  ylab("Density") +
-  ggtitle("Density Plot of Continuous Variable")
-
-```
-
-Review hist of collections
-
-```{r}
-
-barplot(table(as.factor(wings$Collection)))
-
-nrow(filter(wings,Collection == "RUN")) / nrow(wings)
-
+plot_correlation(select(wings,blackbrown,brownyellow,temp_indv,Length..inner..FW..mm.,flight_type, Sex))
 ```
 
 What collections are specimens from?

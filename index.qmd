@@ -2,22 +2,20 @@
 title: "About"
 ---
 
-This website contains worked data manipulation and analysis of the colors and patterns of dragonfly and damselfly wings from the ODOMATIC wing dataset.
+This is a "papers with code" website for "Interactions between sexual signaling and wing size drive ecology and evolution of wing colors in Odonata" published in Scientific Reports.
 
-It is written by [Jacob Idec](https://github.com/jidec), Rob Guralnick, Louis Eppel, and Mike Belitz.
+This is my first "papers with code" website and I expect to improve upon this format in the future.
 
 ## Intro
 
-Insects have adapted the color of their bodies for many ecological functions including sexual selection, mimicry, and thermoregulation. In Odonata, the cosmopolitan insect clade containing dragonflies and damselflies, wing color has been shown to play a role in thermoregulation and territorial signaling between males. Yet previous measurements in large-scale analysis of Odonate wing color draw an incomplete picture by neither capturing the spatial patterning of colors on the wing nor differentiating between different kinds of pigment-driven colors despite the presence of colors other than pure black. It remains an open question what kinds of wing colors and patterns have evolved across Odonata and how they might play roles in signaling and thermoregulation that differ predictably depending on life history strategy. The ODOMATIC wing dataset containing 8000 wings imaged by flatbed scanner provides a means to resolve this.
+Insect coloration has evolved in response to multiple pressures, and in Odonata (dragonflies and damselflies) a body of work supports a role of wing color in a variety of visual signals and potentially in thermoregulation. Previous efforts have focused primarily on melanistic coloration even though wings are often multicolored, and there has yet to be comprehensive comparative analyses of wing color across broad geographic regions and phylogenetic groups. Percher vs. flier flight-style, a trait with thermoregulatory and signaling consequences, has not yet been studied with regard to color. The ODOMATIC wing dataset containing 8000 wings imaged by flatbed scanner provides a means to address these questions.
 
 ## Questions
 
 1.  What kinds of wing colors are present across Odonates, and do they serve different functions?
-2.  Does spatial patterning matter as a signal?
-3.  Do Odonates with different life history strategies use color differently?
+2.  Is dark wing color a territorial signal?
+3.  Is wing size related to color, and if so why?
 
 ## Predictions based on previous research
 
-1.  A color signal (increased pigment or a certain pattern) will be present in territorial males that signals territoriality to other males
-2.  Percher males will have more dark pigments due to their different thermoregulatory needs
-3.  Dragonflies will have more dark wing pigment in colder environments, but lighter wing pigments like yellow or brown will be less affected
+1.  Dark wing color will be enhanced in percher males for territorial signaling

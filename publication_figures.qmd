@@ -2,9 +2,7 @@
 title: "Publication Figures"
 ---
 
-Below are the steps to build the figures shown in our publication
-
-Fig. 1 was done by a coauthor using a separate pipeline
+Below are the steps to build Fig. 3 and 4 shown in our publication (Fig. 1 was done by a coauthor using a separate pipeline and Fig. 2 which was done by hand incorporating scatter plots from Python).
 
 ```{r}
 library(brms)

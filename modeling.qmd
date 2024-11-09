@@ -2,9 +2,9 @@
 title: "Modeling"
 ---
 
-Black dark-brown model
+Create Bayesian model predicting presence and amount of black-dark brown using wing length, local temperature, flight style, sex, and wing type (hind or fore)
 
-```{r}
+```{r m1, eval=FALSE}
 
 library(tidyverse)
 library(brms)
@@ -94,9 +94,9 @@ fit_cor <- correlog(x = ndf_df$lon, y = ndf_df$lat, z = ndf_df$z, increment = 1,
 plot(fit_cor)
 ```
 
-Light-brown yellow model
+Create model for light-brown yellow
 
-```{r}
+```{r m2, eval=FALSE}
 
 library(tidyverse)
 library(brms)

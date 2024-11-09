@@ -2,7 +2,9 @@
 title: "Supplemental"
 ---
 
-Setup
+Create supplemental information tables and figures.
+
+Load packages and read in the saved models.
 
 ```{r}
 
@@ -15,7 +17,7 @@ bb_m <- readRDS("data/blackBrown_phylo_m1_nestedRI_spatialTerm.rds")
 by_m <- readRDS("data/brownYellow_phylo_m1_nestedRI_spatialTerm.rds")
 ```
 
-Model summary tables
+Create model summary tables.
 
 ```{r}
 
@@ -34,7 +36,7 @@ gtsave(bb_table, filename = "figures/bb_table.html")
 gtsave(by_table, filename = "figures/by_table.html")
 ```
 
-Model diagnostics plots - density overlay posterior predictive checks
+Plot model diagnostics (density overlay posterior predictive checks).
 
 ```{r}
 
