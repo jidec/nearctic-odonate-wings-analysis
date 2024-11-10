@@ -173,7 +173,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Load packages and read in the saved models</p>
+<p>Create supplemental information tables and figures.</p>
+<p>Load packages and read in the saved models.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -247,7 +248,7 @@ The following object is masked from 'package:stats':
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>bb_m <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/blackBrown_phylo_m1_nestedRI_spatialTerm.rds"</span>)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>by_m <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/brownYellow_phylo_m1_nestedRI_spatialTerm.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Create model summary tables</p>
+<p>Create model summary tables.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>bb_summary <span class="ot">&lt;-</span> <span class="fu">summary</span>(bb_m, <span class="at">prob =</span> <span class="fl">0.95</span>)<span class="sc">$</span>fixed <span class="sc">%&gt;%</span> </span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>()</span>
@@ -264,23 +265,23 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>bb_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="nwsjzafhhm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#nwsjzafhhm table {
+<div id="pysfubezhh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#pysfubezhh table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#nwsjzafhhm thead, #nwsjzafhhm tbody, #nwsjzafhhm tfoot, #nwsjzafhhm tr, #nwsjzafhhm td, #nwsjzafhhm th {
+#pysfubezhh thead, #pysfubezhh tbody, #pysfubezhh tfoot, #pysfubezhh tr, #pysfubezhh td, #pysfubezhh th {
   border-style: none;
 }
 
-#nwsjzafhhm p {
+#pysfubezhh p {
   margin: 0;
   padding: 0;
 }
 
-#nwsjzafhhm .gt_table {
+#pysfubezhh .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -306,12 +307,12 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   border-left-color: #D3D3D3;
 }
 
-#nwsjzafhhm .gt_caption {
+#pysfubezhh .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#nwsjzafhhm .gt_title {
+#pysfubezhh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -323,7 +324,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   border-bottom-width: 0;
 }
 
-#nwsjzafhhm .gt_subtitle {
+#pysfubezhh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -335,7 +336,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   border-top-width: 0;
 }
 
-#nwsjzafhhm .gt_heading {
+#pysfubezhh .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -347,13 +348,13 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   border-right-color: #D3D3D3;
 }
 
-#nwsjzafhhm .gt_bottom_border {
+#pysfubezhh .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#nwsjzafhhm .gt_col_headings {
+#pysfubezhh .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -368,7 +369,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   border-right-color: #D3D3D3;
 }
 
-#nwsjzafhhm .gt_col_heading {
+#pysfubezhh .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -388,7 +389,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   overflow-x: hidden;
 }
 
-#nwsjzafhhm .gt_column_spanner_outer {
+#pysfubezhh .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -400,15 +401,15 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   padding-right: 4px;
 }
 
-#nwsjzafhhm .gt_column_spanner_outer:first-child {
+#pysfubezhh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#nwsjzafhhm .gt_column_spanner_outer:last-child {
+#pysfubezhh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#nwsjzafhhm .gt_column_spanner {
+#pysfubezhh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -420,11 +421,11 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   width: 100%;
 }
 
-#nwsjzafhhm .gt_spanner_row {
+#pysfubezhh .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#nwsjzafhhm .gt_group_heading {
+#pysfubezhh .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -450,7 +451,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   text-align: left;
 }
 
-#nwsjzafhhm .gt_empty_group_heading {
+#pysfubezhh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -465,15 +466,15 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   vertical-align: middle;
 }
 
-#nwsjzafhhm .gt_from_md > :first-child {
+#pysfubezhh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#nwsjzafhhm .gt_from_md > :last-child {
+#pysfubezhh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#nwsjzafhhm .gt_row {
+#pysfubezhh .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -492,7 +493,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   overflow-x: hidden;
 }
 
-#nwsjzafhhm .gt_stub {
+#pysfubezhh .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -505,7 +506,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   padding-right: 5px;
 }
 
-#nwsjzafhhm .gt_stub_row_group {
+#pysfubezhh .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -519,15 +520,15 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   vertical-align: top;
 }
 
-#nwsjzafhhm .gt_row_group_first td {
+#pysfubezhh .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#nwsjzafhhm .gt_row_group_first th {
+#pysfubezhh .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#nwsjzafhhm .gt_summary_row {
+#pysfubezhh .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -537,16 +538,16 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   padding-right: 5px;
 }
 
-#nwsjzafhhm .gt_first_summary_row {
+#pysfubezhh .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#nwsjzafhhm .gt_first_summary_row.thick {
+#pysfubezhh .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#nwsjzafhhm .gt_last_summary_row {
+#pysfubezhh .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -556,7 +557,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   border-bottom-color: #D3D3D3;
 }
 
-#nwsjzafhhm .gt_grand_summary_row {
+#pysfubezhh .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -566,7 +567,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   padding-right: 5px;
 }
 
-#nwsjzafhhm .gt_first_grand_summary_row {
+#pysfubezhh .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -576,7 +577,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   border-top-color: #D3D3D3;
 }
 
-#nwsjzafhhm .gt_last_grand_summary_row_top {
+#pysfubezhh .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -586,11 +587,11 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   border-bottom-color: #D3D3D3;
 }
 
-#nwsjzafhhm .gt_striped {
+#pysfubezhh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#nwsjzafhhm .gt_table_body {
+#pysfubezhh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -599,7 +600,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   border-bottom-color: #D3D3D3;
 }
 
-#nwsjzafhhm .gt_footnotes {
+#pysfubezhh .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -613,7 +614,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   border-right-color: #D3D3D3;
 }
 
-#nwsjzafhhm .gt_footnote {
+#pysfubezhh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -622,7 +623,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   padding-right: 5px;
 }
 
-#nwsjzafhhm .gt_sourcenotes {
+#pysfubezhh .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -636,7 +637,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   border-right-color: #D3D3D3;
 }
 
-#nwsjzafhhm .gt_sourcenote {
+#pysfubezhh .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -644,63 +645,63 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   padding-right: 5px;
 }
 
-#nwsjzafhhm .gt_left {
+#pysfubezhh .gt_left {
   text-align: left;
 }
 
-#nwsjzafhhm .gt_center {
+#pysfubezhh .gt_center {
   text-align: center;
 }
 
-#nwsjzafhhm .gt_right {
+#pysfubezhh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#nwsjzafhhm .gt_font_normal {
+#pysfubezhh .gt_font_normal {
   font-weight: normal;
 }
 
-#nwsjzafhhm .gt_font_bold {
+#pysfubezhh .gt_font_bold {
   font-weight: bold;
 }
 
-#nwsjzafhhm .gt_font_italic {
+#pysfubezhh .gt_font_italic {
   font-style: italic;
 }
 
-#nwsjzafhhm .gt_super {
+#pysfubezhh .gt_super {
   font-size: 65%;
 }
 
-#nwsjzafhhm .gt_footnote_marks {
+#pysfubezhh .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#nwsjzafhhm .gt_asterisk {
+#pysfubezhh .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#nwsjzafhhm .gt_indent_1 {
+#pysfubezhh .gt_indent_1 {
   text-indent: 5px;
 }
 
-#nwsjzafhhm .gt_indent_2 {
+#pysfubezhh .gt_indent_2 {
   text-indent: 10px;
 }
 
-#nwsjzafhhm .gt_indent_3 {
+#pysfubezhh .gt_indent_3 {
   text-indent: 15px;
 }
 
-#nwsjzafhhm .gt_indent_4 {
+#pysfubezhh .gt_indent_4 {
   text-indent: 20px;
 }
 
-#nwsjzafhhm .gt_indent_5 {
+#pysfubezhh .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -863,23 +864,23 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>by_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="grbpzfptsl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#grbpzfptsl table {
+<div id="jperdbbzqd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jperdbbzqd table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#grbpzfptsl thead, #grbpzfptsl tbody, #grbpzfptsl tfoot, #grbpzfptsl tr, #grbpzfptsl td, #grbpzfptsl th {
+#jperdbbzqd thead, #jperdbbzqd tbody, #jperdbbzqd tfoot, #jperdbbzqd tr, #jperdbbzqd td, #jperdbbzqd th {
   border-style: none;
 }
 
-#grbpzfptsl p {
+#jperdbbzqd p {
   margin: 0;
   padding: 0;
 }
 
-#grbpzfptsl .gt_table {
+#jperdbbzqd .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -905,12 +906,12 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   border-left-color: #D3D3D3;
 }
 
-#grbpzfptsl .gt_caption {
+#jperdbbzqd .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#grbpzfptsl .gt_title {
+#jperdbbzqd .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -922,7 +923,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   border-bottom-width: 0;
 }
 
-#grbpzfptsl .gt_subtitle {
+#jperdbbzqd .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -934,7 +935,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   border-top-width: 0;
 }
 
-#grbpzfptsl .gt_heading {
+#jperdbbzqd .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -946,13 +947,13 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   border-right-color: #D3D3D3;
 }
 
-#grbpzfptsl .gt_bottom_border {
+#jperdbbzqd .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#grbpzfptsl .gt_col_headings {
+#jperdbbzqd .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -967,7 +968,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   border-right-color: #D3D3D3;
 }
 
-#grbpzfptsl .gt_col_heading {
+#jperdbbzqd .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -987,7 +988,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   overflow-x: hidden;
 }
 
-#grbpzfptsl .gt_column_spanner_outer {
+#jperdbbzqd .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -999,15 +1000,15 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   padding-right: 4px;
 }
 
-#grbpzfptsl .gt_column_spanner_outer:first-child {
+#jperdbbzqd .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#grbpzfptsl .gt_column_spanner_outer:last-child {
+#jperdbbzqd .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#grbpzfptsl .gt_column_spanner {
+#jperdbbzqd .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1019,11 +1020,11 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   width: 100%;
 }
 
-#grbpzfptsl .gt_spanner_row {
+#jperdbbzqd .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#grbpzfptsl .gt_group_heading {
+#jperdbbzqd .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1049,7 +1050,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   text-align: left;
 }
 
-#grbpzfptsl .gt_empty_group_heading {
+#jperdbbzqd .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1064,15 +1065,15 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   vertical-align: middle;
 }
 
-#grbpzfptsl .gt_from_md > :first-child {
+#jperdbbzqd .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#grbpzfptsl .gt_from_md > :last-child {
+#jperdbbzqd .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#grbpzfptsl .gt_row {
+#jperdbbzqd .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1091,7 +1092,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   overflow-x: hidden;
 }
 
-#grbpzfptsl .gt_stub {
+#jperdbbzqd .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1104,7 +1105,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   padding-right: 5px;
 }
 
-#grbpzfptsl .gt_stub_row_group {
+#jperdbbzqd .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1118,15 +1119,15 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   vertical-align: top;
 }
 
-#grbpzfptsl .gt_row_group_first td {
+#jperdbbzqd .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#grbpzfptsl .gt_row_group_first th {
+#jperdbbzqd .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#grbpzfptsl .gt_summary_row {
+#jperdbbzqd .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1136,16 +1137,16 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   padding-right: 5px;
 }
 
-#grbpzfptsl .gt_first_summary_row {
+#jperdbbzqd .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#grbpzfptsl .gt_first_summary_row.thick {
+#jperdbbzqd .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#grbpzfptsl .gt_last_summary_row {
+#jperdbbzqd .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1155,7 +1156,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   border-bottom-color: #D3D3D3;
 }
 
-#grbpzfptsl .gt_grand_summary_row {
+#jperdbbzqd .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1165,7 +1166,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   padding-right: 5px;
 }
 
-#grbpzfptsl .gt_first_grand_summary_row {
+#jperdbbzqd .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1175,7 +1176,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   border-top-color: #D3D3D3;
 }
 
-#grbpzfptsl .gt_last_grand_summary_row_top {
+#jperdbbzqd .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1185,11 +1186,11 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   border-bottom-color: #D3D3D3;
 }
 
-#grbpzfptsl .gt_striped {
+#jperdbbzqd .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#grbpzfptsl .gt_table_body {
+#jperdbbzqd .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1198,7 +1199,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   border-bottom-color: #D3D3D3;
 }
 
-#grbpzfptsl .gt_footnotes {
+#jperdbbzqd .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1212,7 +1213,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   border-right-color: #D3D3D3;
 }
 
-#grbpzfptsl .gt_footnote {
+#jperdbbzqd .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1221,7 +1222,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   padding-right: 5px;
 }
 
-#grbpzfptsl .gt_sourcenotes {
+#jperdbbzqd .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1235,7 +1236,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   border-right-color: #D3D3D3;
 }
 
-#grbpzfptsl .gt_sourcenote {
+#jperdbbzqd .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1243,63 +1244,63 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
   padding-right: 5px;
 }
 
-#grbpzfptsl .gt_left {
+#jperdbbzqd .gt_left {
   text-align: left;
 }
 
-#grbpzfptsl .gt_center {
+#jperdbbzqd .gt_center {
   text-align: center;
 }
 
-#grbpzfptsl .gt_right {
+#jperdbbzqd .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#grbpzfptsl .gt_font_normal {
+#jperdbbzqd .gt_font_normal {
   font-weight: normal;
 }
 
-#grbpzfptsl .gt_font_bold {
+#jperdbbzqd .gt_font_bold {
   font-weight: bold;
 }
 
-#grbpzfptsl .gt_font_italic {
+#jperdbbzqd .gt_font_italic {
   font-style: italic;
 }
 
-#grbpzfptsl .gt_super {
+#jperdbbzqd .gt_super {
   font-size: 65%;
 }
 
-#grbpzfptsl .gt_footnote_marks {
+#jperdbbzqd .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#grbpzfptsl .gt_asterisk {
+#jperdbbzqd .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#grbpzfptsl .gt_indent_1 {
+#jperdbbzqd .gt_indent_1 {
   text-indent: 5px;
 }
 
-#grbpzfptsl .gt_indent_2 {
+#jperdbbzqd .gt_indent_2 {
   text-indent: 10px;
 }
 
-#grbpzfptsl .gt_indent_3 {
+#jperdbbzqd .gt_indent_3 {
   text-indent: 15px;
 }
 
-#grbpzfptsl .gt_indent_4 {
+#jperdbbzqd .gt_indent_4 {
   text-indent: 20px;
 }
 
-#grbpzfptsl .gt_indent_5 {
+#jperdbbzqd .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1462,7 +1463,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gtsave</span>(bb_table, <span class="at">filename =</span> <span class="st">"figures/bb_table.html"</span>)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gtsave</span>(by_table, <span class="at">filename =</span> <span class="st">"figures/by_table.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Plot model diagnostics (density overlay posterior predictive checks)</p>
+<p>Plot model diagnostics (density overlay posterior predictive checks).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>bb_pp <span class="ot">&lt;-</span> <span class="fu">pp_check</span>(bb_m, <span class="at">ndraws =</span> <span class="dv">100</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>()</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>bb_pp_part1 <span class="ot">&lt;-</span> bb_pp <span class="sc">+</span> <span class="fu">xlim</span>(<span class="dv">0</span>,<span class="fl">0.025</span>) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">750</span>)</span>
@@ -1473,20 +1474,20 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
 </div>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>bb_pp_part1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 71078 rows containing non-finite values (`stat_density()`).</code></pre>
+<pre><code>Warning: Removed 71406 rows containing non-finite values (`stat_density()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 672 rows containing non-finite values (`stat_density()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 128 rows containing missing values (`geom_line()`).</code></pre>
+<pre><code>Warning: Removed 124 rows containing missing values (`geom_line()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="supplemental_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>bb_pp_part2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 398722 rows containing non-finite values (`stat_density()`).</code></pre>
+<pre><code>Warning: Removed 398394 rows containing non-finite values (`stat_density()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 4025 rows containing non-finite values (`stat_density()`).</code></pre>
@@ -1503,7 +1504,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
 </div>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>by_pp_part1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 196794 rows containing non-finite values (`stat_density()`).</code></pre>
+<pre><code>Warning: Removed 196365 rows containing non-finite values (`stat_density()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 1875 rows containing non-finite values (`stat_density()`).</code></pre>
@@ -1513,7 +1514,7 @@ http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code><
 </div>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>by_pp_part2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 273006 rows containing non-finite values (`stat_density()`).</code></pre>
+<pre><code>Warning: Removed 273435 rows containing non-finite values (`stat_density()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 2823 rows containing non-finite values (`stat_density()`).</code></pre>

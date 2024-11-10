@@ -6,6 +6,8 @@ This is a "papers with code" website for "Interactions between sexual signaling 
 
 This is my first "papers with code" website and I expect to improve upon this format in the future.
 
+Paper by Jacob Idec, Seth Bybee, Jessica Ware, John Abbott, Rhainer Guillermo Ferreira, Anton Suvorov, Manpreet Kohli, Louis Eppel, William R Kuhn, Michael Belitz, and Robert Guralnick.
+
 ## Intro
 
 Insect coloration has evolved in response to multiple pressures, and in Odonata (dragonflies and damselflies) a body of work supports a role of wing color in a variety of visual signals and potentially in thermoregulation. Previous efforts have focused primarily on melanistic coloration even though wings are often multicolored, and there has yet to be comprehensive comparative analyses of wing color across broad geographic regions and phylogenetic groups. Percher vs. flier flight-style, a trait with thermoregulatory and signaling consequences, has not yet been studied with regard to color. The ODOMATIC wing dataset containing 8000 wings imaged by flatbed scanner provides a means to address these questions.
